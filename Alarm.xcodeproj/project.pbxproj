@@ -47,22 +47,16 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		3440675C2D4476C300918847 /* Alarm */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = Alarm;
 			sourceTree = "<group>";
 		};
 		344067702D4476C500918847 /* AlarmTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = AlarmTests;
 			sourceTree = "<group>";
 		};
 		3440677A2D4476C500918847 /* AlarmUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = AlarmUITests;
 			sourceTree = "<group>";
 		};
@@ -106,7 +100,6 @@
 				AD3BD4FC162F851FB101EF56 /* Pods-AlarmTests.debug.xcconfig */,
 				4767BB3A783E0672F7197A1D /* Pods-AlarmTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
