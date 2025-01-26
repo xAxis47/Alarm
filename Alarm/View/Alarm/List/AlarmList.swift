@@ -34,7 +34,7 @@ struct AlarmList: View {
             }
             
         }
-        .accessibilityIdentifier(identifier.alarm.list.alarm)
+        .accessibilityIdentifier(identifier.alarm.list)
         
     }
     

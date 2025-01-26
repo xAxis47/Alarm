@@ -32,7 +32,7 @@ struct MenuButton: View {
             Text(title)
             
         }
-        .accessibilityIdentifier("menu_button")
+        .accessibilityIdentifier(identifier.input.menuButton)
         
     }
 }

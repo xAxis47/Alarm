@@ -19,7 +19,7 @@ struct InputList: View {
             SettingSection()
             
         }
-        .accessibilityIdentifier("input_list")
+        .accessibilityIdentifier(identifier.input.list)
         
     }
     

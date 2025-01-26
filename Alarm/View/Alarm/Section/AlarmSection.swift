@@ -73,11 +73,11 @@ struct AlarmSection: View {
                                 self.vm.changeToggle()
                                
                             }
-                            .accessibilityIdentifier("\(identifier.alarm.toggle.alarm)_\(time)")
+                            .accessibilityIdentifier("\(identifier.alarm.toggle)_\(time)")
                                
                         }
                         .foregroundStyle(.foreground)
-                        .accessibilityIdentifier("\(identifier.alarm.button.cell)_\(time)")
+                        .accessibilityIdentifier("\(identifier.alarm.cellButton)_\(time)")
 
                     }
                     
@@ -90,7 +90,7 @@ struct AlarmSection: View {
                     .font(.title)
                 
             })
-            .accessibilityIdentifier("\(header)_\(identifier.alarm.section.alarm)")
+            .accessibilityIdentifier("\(header)_\(identifier.alarm.alarmSection)")
         }
         
     }

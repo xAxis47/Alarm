@@ -28,7 +28,7 @@ struct MarkView: View {
             }
             
         }
-        .accessibilityIdentifier("mark_view")
+        .accessibilityIdentifier(identifier.mark.view)
         
     }
     
