@@ -36,19 +36,19 @@ struct AlarmSection: View {
                     //item is HourAndMinute. when header and item's title are equeal, cells be exported
                     if(header == item.title) {
                         
+                        //"time" indicate when alarm will ring on the day.
+                        let time = self.vm.pickUpHourAndMinuteString(date: item.date)
+                        
+                         //"dayOfTheWeek" express when during the week will ring.
+                         let dayOfTheWeek = self.vm.pickUpDaysString(checkMarks: item.checkMarks)
+                        
                         Button(action: {
                             
                             self.vm.tapAlarmCell(uuid: item.uuid)
                             
                         }) {
                             
-                             //"time" indicate when alarm will ring on the day.
-                             let time = self.vm.pickUpHourAndMinuteString(date: item.date)
-                            
                             Toggle(isOn: Bindable(item).isOn) {
-                               
-                                //"dayOfTheWeek" express when during the week will ring.
-                                let dayOfTheWeek = self.vm.pickUpDaysString(checkMarks: item.checkMarks)
                                
                                VStack {
                                       
@@ -73,10 +73,11 @@ struct AlarmSection: View {
                                 self.vm.changeToggle()
                                
                             }
-                            .accessibilityIdentifier("toggle_\(time)")
+                            .accessibilityIdentifier("\(identifier.alarm.toggle.alarm)_\(time)")
                                
                         }
                         .foregroundStyle(.foreground)
+                        .accessibilityIdentifier("\(identifier.alarm.button.cell)_\(time)")
 
                     }
                     
@@ -89,7 +90,7 @@ struct AlarmSection: View {
                     .font(.title)
                 
             })
-            .accessibilityIdentifier("alarm_section")
+            .accessibilityIdentifier("\(header)_\(identifier.alarm.section.alarm)")
         }
         
     }

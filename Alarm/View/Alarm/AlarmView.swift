@@ -66,7 +66,8 @@ struct AlarmView: View {
             StopButton()
             
         }
-        .accessibilityIdentifier("alarm_view")
+        .accessibilityIdentifier(identifier.alarm.view.alarm)
+        
     }
     
 }

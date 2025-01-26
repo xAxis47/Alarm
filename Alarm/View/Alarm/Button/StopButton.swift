@@ -31,7 +31,7 @@ struct StopButton: View {
             
         }
         .font(.largeTitle)
-        .accessibilityIdentifier("stop_button")
+        .accessibilityIdentifier(identifier.alarm.button.stop)
     }
 }
 
