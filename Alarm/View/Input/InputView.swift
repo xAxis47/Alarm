@@ -52,7 +52,7 @@ struct InputView: View {
                 }
             
         }
-        .accessibilityIdentifier(identifier.input.view)
+        .accessibilityIdentifier(Identifier.input.view)
     
     }
     

@@ -26,7 +26,7 @@ struct PlusButton: View {
             Label("", systemImage: "plus")
             
         }
-        .accessibilityIdentifier(identifier.alarm.plusButton)
+        .accessibilityIdentifier(Identifier.alarm.plusButton)
         
     }
     

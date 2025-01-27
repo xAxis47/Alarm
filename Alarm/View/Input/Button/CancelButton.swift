@@ -23,7 +23,7 @@ struct CancelButton: View {
             Text(Constant.cancel)
             
         }
-        .accessibilityIdentifier(identifier.input.cancelButton)
+        .accessibilityIdentifier(Identifier.input.cancelButton)
         
     }
     

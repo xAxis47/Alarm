@@ -44,7 +44,7 @@ struct MarkList: View {
             }
             
         }
-        .accessibilityIdentifier(identifier.mark.list)
+        .accessibilityIdentifier(Identifier.mark.list)
     
     }
         

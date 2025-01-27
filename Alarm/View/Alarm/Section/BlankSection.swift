@@ -18,7 +18,7 @@ struct BlankSection: View {
             Text("")
             
         }
-        .accessibilityIdentifier(identifier.alarm.blankSection)
+        .accessibilityIdentifier(Identifier.alarm.blankSection)
         
     }
     

@@ -80,20 +80,20 @@ struct SettingSection: View {
                     
                 }
                 .foregroundStyle(.foreground)
-                .accessibilityIdentifier(identifier.input.menu)
+                .accessibilityIdentifier(Identifier.input.menu)
                 
                 Spacer()
                 
                 //here register the title on the TextField.
                 TextField(Constant.title, text: self.$vm.title)
                     .multilineTextAlignment(.trailing)
-                    .accessibilityIdentifier(identifier.input.textfield)
+                    .accessibilityIdentifier(Identifier.input.textfield)
                     
                 
             }
             
         }
-        .accessibilityIdentifier(identifier.input.settingSection)
+        .accessibilityIdentifier(Identifier.input.settingSection)
         
     }
     

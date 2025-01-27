@@ -25,9 +25,7 @@ final class AlarmUITests: XCTestCase {
     func testInsertData() {
         
         let app = XCUIApplication()
-        
-        let plusButton = app.buttons[identifier.]
-        
+    
     }
     
 }

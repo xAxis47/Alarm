@@ -5,7 +5,7 @@
 //  Created by Kawagoe Wataru on 2025/01/26.
 //
 
-enum identifier {
+enum Identifier {
     
     enum alarm {
         
