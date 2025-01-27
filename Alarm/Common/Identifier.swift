@@ -7,30 +7,33 @@
 
 enum Identifier {
     
-    enum alarm {
+    enum main {
+        
+        static let dayOfTheWeek: String = "main_day_of_the_week_Label"
+        static let time: String = "main_time_Label"
         
         //cell's model is "\(.cellButton)_\(time)". time show when the timer go off.
-        static let cellButton: String = "alarm_cell_button"
-        static let plusButton: String = "alarm_plus_button"
-        static let stopButton: String = "alarm_stop_button"
+        static let cellButton: String = "main_cell_button"
+        static let plusButton: String = "main_plus_button"
+        static let stopButton: String = "main_stop_button"
         
-        static let list: String = "alarm_list"
+        static let list: String = "main_list"
         
-        static let alarmSection: String = "alarm_section"
-        static let blankSection: String = "alarm_ablank_section"
+        static let mainSection: String = "main_section"
+        static let blankSection: String = "main_ablank_section"
         
         //toggle's model is "\(.toggle)_\(time)". time show when the timer go off.
-        static let toggle: String = "alarm_toggle"
+        static let toggle: String = "main_toggle"
         
-        static let view: String = "alarm_view"
+        static let view: String = "main_view"
         
     }
     
     enum input {
         
         static let datepicker: String = "input_datepicker"
-        static let markCell: String = "input_mark_cell"
         static let menu: String = "input_menu"
+        static let navigationLink: String = "input_navigationLink"
         static let textfield: String = "input_textfield"
         
         static let cancelButton: String = "input_cancel_button"
@@ -47,6 +50,11 @@ enum Identifier {
     }
     
     enum mark {
+        
+        //button's model is "\(.button)_\(index)". index means mark list's index.
+        static let button: String = "mark_button"
+        
+        static let image: String = "mark_image"
         
         static let list: String = "mark_list"
         

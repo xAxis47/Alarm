@@ -22,9 +22,9 @@ struct AlarmApp: App {
         
         WindowGroup {
             
-            AlarmView()
+            MainView()
                 .environmentObject(self.vm)
-                .modelContainer(self.vm.model.sharedModelContainer)
+                .modelContainer(self.vm.dModel.sharedModelContainer)
             
         }
         //app refresh and register notification each 3 hours.

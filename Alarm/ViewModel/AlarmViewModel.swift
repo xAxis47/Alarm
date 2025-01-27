@@ -18,10 +18,16 @@ import UserNotifications
 @Observable
 final class AlarmViewModel: ObservableObject {
     
+    //singleton
     static let shared: AlarmViewModel = AlarmViewModel()
     
-    let model: AlarmModel = AlarmModel()
+    //model
+    let aModel: AlarmModel = AlarmModel()
+    let bgModel: BackgroundTaskModel = BackgroundTaskModel()
+    let dModel: DataModel = DataModel()
+    let nModel: NotificationModel = NotificationModel()
     
+    //property
     var checkMarks: [Bool] = Constant.trueArray
     var date: Date = Constant.initialDate
     var title: String = ""
@@ -33,22 +39,30 @@ final class AlarmViewModel: ObservableObject {
     var sheetIsPresented: Bool = false
     var zeroTrueAlertIsPresented: Bool = false
     
+    //enum
     var type: EditorialType = .add
 
     init() {
         
     }
     
+    
+    //this fuction called at MainView.
     func changeToggle() {
         
-        self.model.changeToggle()
+        self.dModel.saveContext()
+        
+        let items = self.dModel.fetchItems()
+        self.nModel.registerAllNotifications(items: items)
         
     }
     
     func deleteItems(indexSet: IndexSet) {
         
-        self.model.deleteItems(offsets: indexSet)
-        self.model.registerAllNotifications()
+        self.dModel.deleteItems(offsets: indexSet)
+        
+        let items = self.dModel.fetchItems()
+        self.nModel.registerAllNotifications(items: items)
         
     }
     
@@ -65,44 +79,45 @@ final class AlarmViewModel: ObservableObject {
         
         let bool = checkMarks[index]
         
-        return self.model.insertSystemName(bool: bool)
+        return self.aModel.insertSystemName(bool: bool)
         
     }
     
     func pickUpDaysString() -> String {
         
-        return self.model.pickUpDaysString(checkMarks: self.checkMarks)
+        return self.aModel.pickUpDaysString(checkMarks: self.checkMarks)
         
     }
     
     func pickUpDaysString(checkMarks: [Bool]) -> String {
         
-        return self.model.pickUpDaysString(checkMarks: checkMarks)
+        return self.aModel.pickUpDaysString(checkMarks: checkMarks)
         
     }
     
     func pickUpHourAndMinuteString(date: Date) -> String {
         
-        return self.model.pickUpHourAndMinuteString(date: date)
+        return self.aModel.pickUpHourAndMinuteString(date: date)
         
     }
     
     //items need?
     func prepareList(items: [HourAndMinute]) -> [String] {
         
-        return self.model.prepareList(items: items)
+        return self.aModel.prepareList(items: items)
         
     }
     
     func registerAllNotifications() {
      
-        self.model.registerAllNotifications()
+        let items = self.dModel.fetchItems()
+        self.nModel.registerAllNotifications(items: items)
         
     }
     
     func saveItemOrCallAlert(dismiss: DismissAction) {
         
-        let selectedItem = model.fetchItem(uuid: indexOfUUID)
+        let selectedItem = self.dModel.fetchItem(uuid: indexOfUUID)
         
         let saveItem: HourAndMinute
         
@@ -128,8 +143,7 @@ final class AlarmViewModel: ObservableObject {
             
         }
         
-        
-        let bool = self.model.saveItem(
+        let bool = self.dModel.saveItem(
             indexUUID: self.indexOfUUID,
             item: saveItem,
             type: self.type
@@ -149,7 +163,7 @@ final class AlarmViewModel: ObservableObject {
     
     func scheduleAppRefresh() {
         
-        self.model.scheduleAppRefresh()
+        self.bgModel.scheduleAppRefresh()
         
     }
     
@@ -176,7 +190,7 @@ final class AlarmViewModel: ObservableObject {
             
             print("edit")
             
-            let item = self.model.fetchItem(uuid: indexOfUUID)
+            let item = self.dModel.fetchItem(uuid: indexOfUUID)
             
             self.checkMarks = item.checkMarks
             self.date = item.date

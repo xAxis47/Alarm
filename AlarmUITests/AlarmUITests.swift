@@ -25,7 +25,38 @@ final class AlarmUITests: XCTestCase {
     func testInsertData() {
         
         let app = XCUIApplication()
-    
+        
+        let plusButton = app.buttons[Identifier.alarm.plusButton]
+                
+        plusButton.tap()
+        
+        let pickerWheel = app.datePickers[Identifier.input.datepicker].pickerWheels
+        
+        pickerWheel.element(boundBy: 0).adjust(toPickerWheelValue: "10")
+        pickerWheel.element(boundBy: 1).adjust(toPickerWheelValue: "00")
+        
+        let markNavigationLink = app.otherElements.buttons[Identifier.input.navigationLink]
+        
+        markNavigationLink.tap()
+        
+        let markCell = app.buttons["\(Identifier.mark.button)_\(0)"]
+        
+        markCell.tap()
+        
+        let backButton = app.navigationBars.buttons.element(boundBy: 0)
+        
+        backButton.tap()
+        
+        let textfield = app.textFields[Identifier.input.textfield]
+        
+        textfield.tap()
+        
+        textfield.typeText("text")
+        
+        let saveButton = app.buttons[Identifier.input.saveButton]
+        
+        saveButton.tap()
+        
     }
     
 }

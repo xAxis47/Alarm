@@ -38,6 +38,7 @@ struct SettingSection: View {
                 }
                 
             }
+            .accessibilityIdentifier(Identifier.input.navigationLink)
            
             HStack {
                 

@@ -1,5 +1,5 @@
 //
-//  AlarmList.swift
+//  MainList.swift
 //  Alarm
 //
 //  Created by Kawagoe Wataru on 2024/08/24.
@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 //this list has 2 section and position header top of the section.
-struct AlarmList: View {
+struct MainList: View {
     
     @EnvironmentObject private var vm: AlarmViewModel
     
@@ -24,7 +24,7 @@ struct AlarmList: View {
             
             if(header.count != 0) {
                 
-                AlarmSection()
+                MainSection()
                 
             } else {
                 
@@ -34,7 +34,7 @@ struct AlarmList: View {
             }
             
         }
-        .accessibilityIdentifier(Identifier.alarm.list)
+        .accessibilityIdentifier(Identifier.main.list)
         
     }
     
@@ -42,7 +42,7 @@ struct AlarmList: View {
 
 #Preview {
     
-    return AlarmList()
+    return MainList()
         .environmentObject(AlarmViewModel())
     
 }

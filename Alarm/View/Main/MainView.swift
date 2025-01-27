@@ -1,5 +1,5 @@
 //
-//  AlarmView.swift
+//  MainView.swift
 //  Alarm
 //
 //  Created by Kawagoe Wataru on 2024/06/20.
@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 //first view. there is cells of setted time. bottom is stop button of notification's sound.
-struct AlarmView: View {
+struct MainView: View {
     
     @Environment(\.dismiss) private var dismiss
     
@@ -29,7 +29,7 @@ struct AlarmView: View {
             NavigationStack {
                 
                 //list of setted alarm. alarm can set 16 items. setted alarm button will transition to InputView. then EditorialType is ".edit".
-                AlarmList()
+                MainList()
                 .sheet(isPresented: self.$vm.sheetIsPresented) {
                     
                     //InputView don't use NavigationLink. I prefer sheet. InputView can make alarm. and set time, repitition and title.
@@ -66,7 +66,7 @@ struct AlarmView: View {
             StopButton()
             
         }
-        .accessibilityIdentifier(Identifier.alarm.view)
+        .accessibilityIdentifier(Identifier.main.view)
         
     }
     
@@ -74,7 +74,7 @@ struct AlarmView: View {
 
 #Preview {
     
-    return AlarmView()
+    return MainView()
         .environmentObject(AlarmViewModel())
     
 }

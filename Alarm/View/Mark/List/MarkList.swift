@@ -32,6 +32,7 @@ struct MarkList: View {
                         
                         Image(systemName: self.vm.insertSystemName(index: index))
                             .foregroundStyle(.orange)
+                            .accessibilityIdentifier("\(Identifier.mark.image)_ \(index)")
                         
                     }
                     .padding()
@@ -39,6 +40,7 @@ struct MarkList: View {
                 }
                 .foregroundStyle(.foreground)
                 .listRowInsets(.init())
+                .accessibilityIdentifier("\(Identifier.mark.button)_\(index)")
 
                 
             }

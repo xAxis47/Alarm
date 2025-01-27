@@ -1,5 +1,5 @@
 //
-//  AlarmSection.swift
+//  MainSection.swift
 //  Alarm
 //
 //  Created by Kawagoe Wataru on 2024/08/24.
@@ -9,7 +9,7 @@ import SwiftData
 import SwiftUI
 
 //this section is complex a little.
-struct AlarmSection: View {
+struct MainSection: View {
     
     @EnvironmentObject private var vm: AlarmViewModel
     
@@ -33,6 +33,8 @@ struct AlarmSection: View {
                 //make cells in the section.
                 ForEach(items) { item in
                     
+                    let index = items.firstIndex(of: item) ?? 100
+                    
                     //item is HourAndMinute. when header and item's title are equeal, cells be exported
                     if(header == item.title) {
                         
@@ -55,13 +57,11 @@ struct AlarmSection: View {
                                    Text(time)
                                        .font(.largeTitle)
                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                       .accessibilityIdentifier("\(Identifier.main.time)_\(index)")
                                    
-                                   HStack {
-                                       
-                                       Text(dayOfTheWeek)
+                                   Text(dayOfTheWeek)
                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                       
-                                   }
+                                       .accessibilityIdentifier("\(Identifier.main.dayOfTheWeek)_\(index)")
                                    
                                }
                                
@@ -73,11 +73,11 @@ struct AlarmSection: View {
                                 self.vm.changeToggle()
                                
                             }
-                            .accessibilityIdentifier("\(Identifier.alarm.toggle)_\(time)")
+                            .accessibilityIdentifier("\(Identifier.main.toggle)_\(time)")
                                
                         }
                         .foregroundStyle(.foreground)
-                        .accessibilityIdentifier("\(Identifier.alarm.cellButton)_\(time)")
+                        .accessibilityIdentifier("\(Identifier.main.cellButton)_\(time)")
 
                     }
                     
@@ -90,7 +90,7 @@ struct AlarmSection: View {
                     .font(.title)
                 
             })
-            .accessibilityIdentifier("\(header)_\(Identifier.alarm.alarmSection)")
+            .accessibilityIdentifier("\(header)_\(Identifier.main.mainSection)")
         }
         
     }
@@ -99,7 +99,7 @@ struct AlarmSection: View {
 
 #Preview {
     
-    return AlarmSection()
+    return MainSection()
         .environmentObject(AlarmViewModel())
     
 }
