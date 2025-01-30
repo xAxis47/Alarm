@@ -55,11 +55,12 @@ struct MainSection: View {
                                VStack {
                                       
                                    Text(time)
-                                       .font(.largeTitle)
+                                       .font(.custom("bold", size: 48))
                                        .frame(maxWidth: .infinity, alignment: .leading)
                                        .accessibilityIdentifier("\(Identifier.main.time)_\(index)")
                                    
                                    Text(dayOfTheWeek)
+                                       .font(.footnote)
                                        .frame(maxWidth: .infinity, alignment: .leading)
                                        .accessibilityIdentifier("\(Identifier.main.dayOfTheWeek)_\(index)")
                                    

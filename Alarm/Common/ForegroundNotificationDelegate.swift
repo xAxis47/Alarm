@@ -7,7 +7,7 @@
 
 import UserNotifications
 
-class ForegroundNotificationDelegate:NSObject,UNUserNotificationCenterDelegate{
+class ForegroundNotificationDelegate:NSObject, UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         

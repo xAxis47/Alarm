@@ -27,7 +27,7 @@ final class AlarmViewModel: ObservableObject {
     let dModel: DataModel = DataModel()
     let nModel: NotificationModel = NotificationModel()
     
-    //property
+    //view property
     var checkMarks: [Bool] = Constant.trueArray
     var date: Date = Constant.initialDate
     var title: String = ""
@@ -45,7 +45,6 @@ final class AlarmViewModel: ObservableObject {
     init() {
         
     }
-    
     
     //this fuction called at MainView.
     func changeToggle() {

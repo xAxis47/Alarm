@@ -30,8 +30,8 @@ struct AlarmApp: App {
         //app refresh and register notification each 3 hours.
         .backgroundTask(.appRefresh(Constant.refreshIdentifier)){
             
-            await self.vm.scheduleAppRefresh()
-            await self.vm.registerAllNotifications()
+//            await self.vm.scheduleAppRefresh()
+//            await self.vm.registerAllNotifications()
             
         }
         

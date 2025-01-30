@@ -127,9 +127,12 @@ class DataModel {
             .filter { $0.date == item.date }
             .count
         
-        print("overlap is \(overlap)")
-        
         let updateItem = self.fetchItem(uuid: indexUUID)
+    
+        print("overlap is \(overlap)")
+        print("editorialType is \(type)")
+        print("item's date is \(item.date)")
+        print("update item's date is \(updateItem.date)")
         
         //EditorialType
         
@@ -176,6 +179,12 @@ class DataModel {
             return nil
             
             //when ".edit", and overlap items, dont change "date", "title" is inserted blank, need to save item. in this case, changed "checkMarks" and "title".
+        } else if(type == .edit && overlap != 0 && item.date == updateItem.date) {
+            
+            editCheckmarkAndTitleItem()
+            
+            return nil
+            
         } else {
             
             conflictAlert()
@@ -244,6 +253,19 @@ class DataModel {
         func editTitleItem() {
             
             print("5")
+            
+            updateItem.checkMarks = item.checkMarks
+            updateItem.date = item.date
+            updateItem.isOn = item.isOn
+            updateItem.title = item.title
+            
+            self.saveContext()
+            
+        }
+        
+        func editCheckmarkAndTitleItem() {
+            
+            print("6")
             
             updateItem.checkMarks = item.checkMarks
             updateItem.date = item.date

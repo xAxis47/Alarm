@@ -15,12 +15,10 @@ enum Identifier {
         //cell's model is "\(.cellButton)_\(time)". time show when the timer go off.
         static let cellButton: String = "main_cell_button"
         static let plusButton: String = "main_plus_button"
-        static let stopButton: String = "main_stop_button"
         
         static let list: String = "main_list"
         
         static let mainSection: String = "main_section"
-        static let blankSection: String = "main_ablank_section"
         
         //toggle's model is "\(.toggle)_\(time)". time show when the timer go off.
         static let toggle: String = "main_toggle"

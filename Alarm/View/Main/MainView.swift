@@ -16,54 +16,45 @@ struct MainView: View {
     @EnvironmentObject private var vm: AlarmViewModel
 //    @Environment(AlarmViewModel.self) var vm
     
-    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
-    
     init() {
         
     }
     
     var body: some View {
         
-        VStack {
+        NavigationStack {
             
-            NavigationStack {
+            //list of setted alarm. alarm can set 16 items. setted alarm button will transition to InputView. then EditorialType is ".edit".
+            MainList()
+            .sheet(isPresented: self.$vm.sheetIsPresented) {
                 
-                //list of setted alarm. alarm can set 16 items. setted alarm button will transition to InputView. then EditorialType is ".edit".
-                MainList()
-                .sheet(isPresented: self.$vm.sheetIsPresented) {
+                //InputView don't use NavigationLink. I prefer sheet. InputView can make alarm. and set time, repitition and title.
+                InputView()
+                
+            }
+            .toolbar {
+                
+                ToolbarItem(placement: .topBarLeading) {
                     
-                    //InputView don't use NavigationLink. I prefer sheet. InputView can make alarm. and set time, repitition and title.
-                    InputView()
-                    
-                }
-                .toolbar {
-                    
-                    ToolbarItem(placement: .topBarTrailing) {
-                        
-                        EditButton()
-                        
-                    }
-                    
-                    ToolbarItem(placement: .topBarTrailing) {
-                        
-                        //PlusButton will transition to InputView. then EditorialType is ".add".
-                        PlusButton()
-                        
-                    }
+                    EditButton()
                     
                 }
-                // this alert is called when ammount of alarm is made over 16 items.
-                .alert(Constant.limitAlertTitle, isPresented: self.$vm.limitAlertIsPresented) {
-                } message: {
+                
+                ToolbarItem(placement: .topBarTrailing) {
                     
-                    Text(Constant.limitAlertBody)
+                    //PlusButton will transition to InputView. then EditorialType is ".add".
+                    PlusButton()
                     
                 }
                 
             }
-            
-            //stop all sound and notification
-            StopButton()
+            // this alert is called when ammount of alarm is made over 16 items.
+            .alert(Constant.limitAlertTitle, isPresented: self.$vm.limitAlertIsPresented) {
+            } message: {
+                
+                Text(Constant.limitAlertBody)
+                
+            }
             
         }
         .accessibilityIdentifier(Identifier.main.view)
