@@ -24,6 +24,8 @@ class BackgroundTaskModel {
             
         } catch {
             
+            print("scheduleAppRefresh")
+            
             print("error")
             
         }

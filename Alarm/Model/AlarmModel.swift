@@ -28,7 +28,7 @@ class AlarmModel: ObservableObject {
     }
     
     //write string of the days of the week or "everyday".
-    func pickUpDaysString(checkMarks: [Bool]) -> String {
+    func pickUpDayOfTheWeek(checkMarks: [Bool]) -> String {
         
         let trueCount = checkMarks
             .filter { $0 }
@@ -62,7 +62,7 @@ class AlarmModel: ObservableObject {
     }
     
     //write hour and minute of the date. when minutes is 0 ~ 9, is written "00" ~ "09"
-    func pickUpHourAndMinuteString(date: Date) -> String {
+    func pickUpTime(date: Date) -> String {
         
         let region = Region(
             calendar: Calendars.gregorian,

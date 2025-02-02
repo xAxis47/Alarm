@@ -26,6 +26,8 @@ final class AlarmUITests: XCTestCase {
         
         let app = XCUIApplication()
         
+        app.launch()
+        
         let plusButton = app.buttons[Identifier.main.plusButton]
                 
         plusButton.tap()

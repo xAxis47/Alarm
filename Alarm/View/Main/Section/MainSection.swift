@@ -39,10 +39,10 @@ struct MainSection: View {
                     if(header == item.title) {
                         
                         //"time" indicate when alarm will ring on the day.
-                        let time = self.vm.pickUpHourAndMinuteString(date: item.date)
+                        let time = self.vm.pickUpTime(date: item.date)
                         
                          //"dayOfTheWeek" express when during the week will ring.
-                         let dayOfTheWeek = self.vm.pickUpDaysString(checkMarks: item.checkMarks)
+                         let dayOfTheWeek = self.vm.pickUpDayOfTheWeek(checkMarks: item.checkMarks)
                         
                         Button(action: {
                             
@@ -74,11 +74,11 @@ struct MainSection: View {
                                 self.vm.changeToggle()
                                
                             }
-                            .accessibilityIdentifier("\(Identifier.main.toggle)_\(time)")
+                            .accessibilityIdentifier("\(Identifier.main.toggle)_\(index)")
                                
                         }
                         .foregroundStyle(.foreground)
-                        .accessibilityIdentifier("\(Identifier.main.cellButton)_\(time)")
+                        .accessibilityIdentifier("\(Identifier.main.cellButton)_\(index)")
 
                     }
                     
@@ -91,7 +91,7 @@ struct MainSection: View {
                     .font(.title)
                 
             })
-            .accessibilityIdentifier("\(header)_\(Identifier.main.mainSection)")
+            .accessibilityIdentifier("\(Identifier.main.mainSection)_\(header)")
         }
         
     }

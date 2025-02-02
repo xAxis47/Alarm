@@ -13,7 +13,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     let shared: AlarmViewModel = AlarmViewModel.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        
+        print("did finish launching with options")
         shared.scheduleAppRefresh()
         shared.registerAllNotifications()
         

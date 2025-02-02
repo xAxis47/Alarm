@@ -33,7 +33,7 @@ struct SettingSection: View {
                     Spacer()
                     
                     //show the days of the week. can show specific days of the week too.
-                    Text(self.vm.pickUpDaysString())
+                    Text(self.vm.pickUpDayOfTheWeek())
                         .foregroundStyle(.secondary)
                 }
                 

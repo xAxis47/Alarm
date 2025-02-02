@@ -82,21 +82,21 @@ final class AlarmViewModel: ObservableObject {
         
     }
     
-    func pickUpDaysString() -> String {
+    func pickUpDayOfTheWeek() -> String {
         
-        return self.aModel.pickUpDaysString(checkMarks: self.checkMarks)
-        
-    }
-    
-    func pickUpDaysString(checkMarks: [Bool]) -> String {
-        
-        return self.aModel.pickUpDaysString(checkMarks: checkMarks)
+        return self.aModel.pickUpDayOfTheWeek(checkMarks: self.checkMarks)
         
     }
     
-    func pickUpHourAndMinuteString(date: Date) -> String {
+    func pickUpDayOfTheWeek(checkMarks: [Bool]) -> String {
         
-        return self.aModel.pickUpHourAndMinuteString(date: date)
+        return self.aModel.pickUpDayOfTheWeek(checkMarks: checkMarks)
+        
+    }
+    
+    func pickUpTime(date: Date) -> String {
+        
+        return self.aModel.pickUpTime(date: date)
         
     }
     

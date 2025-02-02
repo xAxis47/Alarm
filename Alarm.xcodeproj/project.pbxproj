@@ -55,14 +55,34 @@
 		34FF7DE72D47229100502A6C /* Exceptions for "Alarm" folder in "AlarmTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Common/AppDelegate.swift,
+				Common/Enum.swift,
+				Common/Extension.swift,
+				Common/ForegroundNotificationDelegate.swift,
 				Common/Identifier.swift,
+				Item/Item.swift,
+				Model/AlarmModel.swift,
+				Model/BackgroundTaskModel.swift,
+				Model/DataModel.swift,
+				Model/NotificationModel.swift,
+				ViewModel/AlarmViewModel.swift,
 			);
 			target = 3440676C2D4476C500918847 /* AlarmTests */;
 		};
 		34FF7DE82D47229100502A6C /* Exceptions for "Alarm" folder in "AlarmUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Common/AppDelegate.swift,
+				Common/Enum.swift,
+				Common/Extension.swift,
+				Common/ForegroundNotificationDelegate.swift,
 				Common/Identifier.swift,
+				Item/Item.swift,
+				Model/AlarmModel.swift,
+				Model/BackgroundTaskModel.swift,
+				Model/DataModel.swift,
+				Model/NotificationModel.swift,
+				ViewModel/AlarmViewModel.swift,
 			);
 			target = 344067762D4476C500918847 /* AlarmUITests */;
 		};
