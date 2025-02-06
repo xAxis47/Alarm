@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Alarm
 
 final class AlarmUITests: XCTestCase {
 
@@ -24,6 +25,10 @@ final class AlarmUITests: XCTestCase {
     
     func testInsertData() {
         
+        let hour = "10"
+        let minute = "00"
+        let header = "text"
+        
         let app = XCUIApplication()
         
         app.launch()
@@ -34,8 +39,8 @@ final class AlarmUITests: XCTestCase {
         
         let pickerWheel = app.descendants(matching: .datePicker).firstMatch.pickerWheels
         
-        pickerWheel.element(boundBy: 0).adjust(toPickerWheelValue: "10")
-        pickerWheel.element(boundBy: 1).adjust(toPickerWheelValue: "00")
+        pickerWheel.element(boundBy: 0).adjust(toPickerWheelValue: hour)
+        pickerWheel.element(boundBy: 1).adjust(toPickerWheelValue: minute)
         
         let markNavigationLink = app.otherElements.buttons[Identifier.input.settingSection].firstMatch
         
@@ -53,11 +58,19 @@ final class AlarmUITests: XCTestCase {
         
         textfield.tap()
         
-        textfield.typeText("text")
+        textfield.typeText(header)
         
         let saveButton = app.buttons[Identifier.input.saveButton]
         
         saveButton.tap()
+        
+        let time = app.descendants(matching: .staticText).matching(identifier: "\(Identifier.main.time)_\(0)").element.label
+        let dayOfTheWeek = app.descendants(matching: .staticText).matching(identifier: "\(Identifier.main.dayOfTheWeek)_\(0)").element.label
+        let title = app.descendants(matching: .staticText).matching(identifier: "\(Identifier.main.mainSection)").element.label
+        
+        XCTAssertEqual(time, "\(hour):\(minute)", "時間が正しい")
+        XCTAssertEqual(dayOfTheWeek, "月,火,水,木,金,土", "曜日が正しい")
+        XCTAssertEqual(title, header, "セクションのheaderが正しい")
         
     }
     
