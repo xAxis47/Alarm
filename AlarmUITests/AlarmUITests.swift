@@ -32,12 +32,12 @@ final class AlarmUITests: XCTestCase {
                 
         plusButton.tap()
         
-        let pickerWheel = app.datePickers[Identifier.input.datepicker].pickerWheels
+        let pickerWheel = app.descendants(matching: .datePicker).firstMatch.pickerWheels
         
         pickerWheel.element(boundBy: 0).adjust(toPickerWheelValue: "10")
         pickerWheel.element(boundBy: 1).adjust(toPickerWheelValue: "00")
         
-        let markNavigationLink = app.otherElements.buttons[Identifier.input.navigationLink]
+        let markNavigationLink = app.otherElements.buttons[Identifier.input.settingSection].firstMatch
         
         markNavigationLink.tap()
         
@@ -45,11 +45,11 @@ final class AlarmUITests: XCTestCase {
         
         markCell.tap()
         
-        let backButton = app.navigationBars.buttons.element(boundBy: 0)
+        let backButton = app.navigationBars.buttons.element(boundBy: 2)
         
         backButton.tap()
         
-        let textfield = app.textFields[Identifier.input.textfield]
+        let textfield = app.descendants(matching: .textField).firstMatch
         
         textfield.tap()
         
