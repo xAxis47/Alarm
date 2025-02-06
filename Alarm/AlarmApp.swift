@@ -24,14 +24,14 @@ struct AlarmApp: App {
             
             MainView()
                 .environmentObject(self.vm)
-                .modelContainer(self.vm.dModel.sharedModelContainer)
+                .modelContainer(self.vm.dataModel.sharedModelContainer)
             
         }
         //app refresh and register notification each 3 hours.
         .backgroundTask(.appRefresh(Constant.refreshIdentifier)){
             
-//            await self.vm.scheduleAppRefresh()
-//            await self.vm.registerAllNotifications()
+            await self.vm.scheduleAppRefresh()
+            await self.vm.registerAllNotifications()
             
         }
         

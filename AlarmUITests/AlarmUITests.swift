@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import Alarm
 
 final class AlarmUITests: XCTestCase {
 
@@ -66,7 +65,7 @@ final class AlarmUITests: XCTestCase {
         
         let time = app.descendants(matching: .staticText).matching(identifier: "\(Identifier.main.time)_\(0)").element.label
         let dayOfTheWeek = app.descendants(matching: .staticText).matching(identifier: "\(Identifier.main.dayOfTheWeek)_\(0)").element.label
-        let title = app.descendants(matching: .staticText).matching(identifier: "\(Identifier.main.mainSection)").element.label
+        let title = app.descendants(matching: .staticText).matching(identifier: "\(Identifier.main.mainSection)_\(header)").element.label
         
         XCTAssertEqual(time, "\(hour):\(minute)", "時間が正しい")
         XCTAssertEqual(dayOfTheWeek, "月,火,水,木,金,土", "曜日が正しい")

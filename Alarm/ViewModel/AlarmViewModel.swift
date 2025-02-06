@@ -22,10 +22,10 @@ final class AlarmViewModel: ObservableObject {
     static let shared: AlarmViewModel = AlarmViewModel()
     
     //model
-    let aModel: AlarmModel = AlarmModel()
-    let bgModel: BackgroundTaskModel = BackgroundTaskModel()
-    let dModel: DataModel = DataModel()
-    let nModel: NotificationModel = NotificationModel()
+    let alarmModel: AlarmModel = AlarmModel()
+    let backgroundTaskModel: BackgroundTaskModel = BackgroundTaskModel()
+    let dataModel: DataModel = DataModel()
+    let notificationModel: NotificationModel = NotificationModel()
     
     //view property
     var checkMarks: [Bool] = Constant.trueArray
@@ -49,19 +49,25 @@ final class AlarmViewModel: ObservableObject {
     //this fuction called at MainView.
     func changeToggle() {
         
-        self.dModel.saveContext()
+        self.dataModel.saveContext()
         
-        let items = self.dModel.fetchItems()
-        self.nModel.registerAllNotifications(items: items)
+        let items = self.dataModel.fetchItems()
+        self.notificationModel.registerAllNotifications(items: items)
         
     }
     
     func deleteItems(indexSet: IndexSet) {
         
-        self.dModel.deleteItems(offsets: indexSet)
+        self.dataModel.deleteItems(offsets: indexSet)
         
-        let items = self.dModel.fetchItems()
-        self.nModel.registerAllNotifications(items: items)
+        let items = self.dataModel.fetchItems()
+        self.notificationModel.registerAllNotifications(items: items)
+        
+    }
+    
+    func filterHeader(items: [HourAndMinute]) -> String {
+        
+        return self.alarmModel.filterHeader(items: items)
         
     }
     
@@ -78,45 +84,45 @@ final class AlarmViewModel: ObservableObject {
         
         let bool = checkMarks[index]
         
-        return self.aModel.insertSystemName(bool: bool)
+        return self.alarmModel.insertSystemName(bool: bool)
         
     }
     
     func pickUpDayOfTheWeek() -> String {
         
-        return self.aModel.pickUpDayOfTheWeek(checkMarks: self.checkMarks)
+        return self.alarmModel.pickUpDayOfTheWeek(checkMarks: self.checkMarks)
         
     }
     
     func pickUpDayOfTheWeek(checkMarks: [Bool]) -> String {
         
-        return self.aModel.pickUpDayOfTheWeek(checkMarks: checkMarks)
+        return self.alarmModel.pickUpDayOfTheWeek(checkMarks: checkMarks)
         
     }
     
     func pickUpTime(date: Date) -> String {
         
-        return self.aModel.pickUpTime(date: date)
+        return self.alarmModel.pickUpTime(date: date)
         
     }
     
-    //items need?
-    func prepareList(items: [HourAndMinute]) -> [String] {
+    func prepareItems(items: [HourAndMinute]) -> [[HourAndMinute]] {
         
-        return self.aModel.prepareList(items: items)
+        
+        return self.alarmModel.prepareItems(items: items)
         
     }
     
     func registerAllNotifications() {
      
-        let items = self.dModel.fetchItems()
-        self.nModel.registerAllNotifications(items: items)
+        let items = self.dataModel.fetchItems()
+        self.notificationModel.registerAllNotifications(items: items)
         
     }
     
     func saveItemOrCallAlert(dismiss: DismissAction) {
         
-        let selectedItem = self.dModel.fetchItem(uuid: indexOfUUID)
+        let selectedItem = self.dataModel.fetchItem(uuid: indexOfUUID)
         
         let saveItem: HourAndMinute
         
@@ -142,7 +148,7 @@ final class AlarmViewModel: ObservableObject {
             
         }
         
-        let bool = self.dModel.saveItem(
+        let bool = self.dataModel.saveItem(
             indexUUID: self.indexOfUUID,
             item: saveItem,
             type: self.type
@@ -162,7 +168,7 @@ final class AlarmViewModel: ObservableObject {
     
     func scheduleAppRefresh() {
         
-        self.bgModel.scheduleAppRefresh()
+        self.backgroundTaskModel.scheduleAppRefresh()
         
     }
     
@@ -177,8 +183,6 @@ final class AlarmViewModel: ObservableObject {
         
         if(self.type == .add) {
             
-            print("add")
-            
             self.indexOfUUID = UUID()
             
             self.checkMarks = Constant.trueArray
@@ -187,9 +191,7 @@ final class AlarmViewModel: ObservableObject {
             
         } else {
             
-            print("edit")
-            
-            let item = self.dModel.fetchItem(uuid: indexOfUUID)
+            let item = self.dataModel.fetchItem(uuid: indexOfUUID)
             
             self.checkMarks = item.checkMarks
             self.date = item.date

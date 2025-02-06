@@ -12,15 +12,15 @@ enum Identifier {
         static let dayOfTheWeek: String = "main_day_of_the_week_Label"
         static let time: String = "main_time_Label"
         
-        //cell's model is "\(.cellButton)_\(time)". time show when the timer go off.
+        //cell's model is "\(.cellButton)_\(index)".
         static let cellButton: String = "main_cell_button"
         static let plusButton: String = "main_plus_button"
         
         static let list: String = "main_list"
-        
+        //cell's model is "\(.mainSection)_\(header)".
         static let mainSection: String = "main_section"
         
-        //toggle's model is "\(.toggle)_\(time)". time show when the timer go off.
+        //toggle's model is "\(.toggle)_\(index)".
         static let toggle: String = "main_toggle"
         
         static let view: String = "main_view"
@@ -49,7 +49,7 @@ enum Identifier {
     
     enum mark {
         
-        //button's model is "\(.button)_\(index)". index means mark list's index.
+        //button's model is "\(.button)_\(index)".
         static let button: String = "mark_button"
         
         static let image: String = "mark_image"

@@ -12,6 +12,18 @@ import UIKit
 
 @MainActor
 class AlarmModel: ObservableObject {
+    
+    func filterHeader(items: [HourAndMinute]) -> String {
+        
+        let titles: [String] = items.map { $0.title }
+        
+        let withoutOverlapping: Set<String> = Set(titles)
+        
+        let header: String = withoutOverlapping.first!
+        
+        return header
+        
+    }
 
     func insertSystemName(bool: Bool) -> String {
         
@@ -87,30 +99,19 @@ class AlarmModel: ObservableObject {
         
     }
     
-    //this "List" is the list on MainView made by items. "header" is assigned sorted list.
-    func prepareList(items: [HourAndMinute]) -> [String] {
+    func prepareItems(items: [HourAndMinute]) -> [[HourAndMinute]] {
         
-        let titles = Array(Set(items.map({ $0.title })))
-            .sorted(by: { $0 < $1 })
+        let headers: [String] = Array(Set(items.map({ $0.title })))
+            .sorted(by: { $0 > $1 })
         
-        let bool = titles.contains(Constant.goodMorning)
-        
-        let header: [String]
-        
-        if(bool == true) {
+        let doubleArray: [[HourAndMinute]] = headers.map { header -> [HourAndMinute] in
             
-            header = titles
-                .filter { $0 != Constant.goodMorning }
-                .add(Constant.goodMorning)
-            
-        } else {
-            
-            header = titles
+            return items.filter({ $0.title == header })
             
         }
         
-        return header
+        return doubleArray
         
     }
-
+    
 }
