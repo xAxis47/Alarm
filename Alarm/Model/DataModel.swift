@@ -44,16 +44,10 @@ class DataModel {
         withAnimation {
             
             for index in offsets {
-                
-                print("\(items[index].date)")
-                
-                print("index is \(index)")
-                
+               
                 self.context.delete(items[index])
                 
                 fetchItems().forEach { print($0.date) }
-                
-                print("delete item")
                 
             }
             
@@ -129,11 +123,6 @@ class DataModel {
         
         let updateItem = self.fetchItem(uuid: indexUUID)
     
-        print("overlap is \(overlap)")
-        print("editorialType is \(type)")
-        print("item's date is \(item.date)")
-        print("update item's date is \(updateItem.date)")
-        
         //EditorialType
         
         //when ".add", dont overlap items and title is blank, can insert new item of "HourAndMinute". then new item's title is "Constant.other".

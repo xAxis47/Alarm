@@ -76,16 +76,16 @@ class AlarmModel: ObservableObject {
     //write hour and minute of the date. when minutes is 0 ~ 9, is written "00" ~ "09"
     func pickUpTime(date: Date) -> String {
         
-        let region = Region(
-            calendar: Calendars.gregorian,
-            zone: Zones.current,
-            locale: Locales.current
-        )
-        
-        let convertedDate = date.convertTo(region: region)
-        
-        let hour = convertedDate.hour
-        let minute = convertedDate.minute
+//        let region = Region(
+//            calendar: Calendars.gregorian,
+//            zone: Zones.current,
+//            locale: Locales.current
+//        )
+//        
+//        let convertedDate = date.convertTo(region: region)
+//        
+        let hour = date.hour
+        let minute = date.minute
         
         if(minute >= 0 && minute <= 9) {
             

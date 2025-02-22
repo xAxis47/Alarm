@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import SwiftDate
 
 
 @main
@@ -17,6 +18,13 @@ struct AlarmApp: App {
     
 //    let shared: AlarmViewModel = AlarmViewModel.shared
     let vm: AlarmViewModel = AlarmViewModel()
+    
+    init() {
+        
+        let region = Region(calendar: Calendars.gregorian, zone: Zones.asiaTokyo, locale: Locales.japanese)
+        SwiftDate.defaultRegion = region
+        
+    }
     
     var body: some Scene {
         
