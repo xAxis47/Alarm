@@ -13,16 +13,19 @@ import UIKit
 @MainActor
 class AlarmModel: ObservableObject {
     
-    func filterHeader(items: [HourAndMinute]) -> String {
-        
-        let titles: [String] = items.map { $0.title }
-        
-        let withoutOverlapping: Set<String> = Set(titles)
-        
-        let header: String = withoutOverlapping.first!
-        
-        return header
-        
+    func filterHeader(titles: ([HourAndMinute]) -> Set<String>, items: [HourAndMinute]) -> String {
+        return titles(items).first!
+    }
+    
+    func filterTitles(titles: ([HourAndMinute]) -> Set<String>, items: [HourAndMinute]) -> [String] {
+        return Array(titles(items))
+            .sorted(by: { $0 < $1 })
+            .filter { $0 != Constant.goodMorning }
+            .filter { $0 != Constant.blank }
+    }
+    
+    func getTitles(_ items: [HourAndMinute]) -> Set<String> {
+        return Set(items.map { $0.title } )
     }
 
     func insertSystemName(bool: Bool) -> String {
@@ -76,14 +79,6 @@ class AlarmModel: ObservableObject {
     //write hour and minute of the date. when minutes is 0 ~ 9, is written "00" ~ "09"
     func pickUpTime(date: Date) -> String {
         
-//        let region = Region(
-//            calendar: Calendars.gregorian,
-//            zone: Zones.current,
-//            locale: Locales.current
-//        )
-//        
-//        let convertedDate = date.convertTo(region: region)
-//        
         let hour = date.hour
         let minute = date.minute
         
@@ -99,9 +94,9 @@ class AlarmModel: ObservableObject {
         
     }
     
-    func prepareItems(items: [HourAndMinute]) -> [[HourAndMinute]] {
+    func prepareItems(titles: ([HourAndMinute]) -> Set<String>, items: [HourAndMinute]) -> [[HourAndMinute]] {
         
-        let headers: [String] = Array(Set(items.map({ $0.title })))
+        let headers: [String] = Array(titles(items))
             .sorted(by: { $0 > $1 })
         
         let doubleArray: [[HourAndMinute]] = headers.map { header -> [HourAndMinute] in

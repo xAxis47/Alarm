@@ -42,10 +42,6 @@ final class AlarmViewModel: ObservableObject {
     //enum
     var type: EditorialType = .add
 
-    init() {
-        
-    }
-    
     //this fuction called at MainView.
     func changeToggle() {
         
@@ -66,18 +62,17 @@ final class AlarmViewModel: ObservableObject {
     }
     
     func filterHeader(items: [HourAndMinute]) -> String {
-        
-        return self.alarmModel.filterHeader(items: items)
-        
+        return self.alarmModel.filterHeader(
+            titles: self.alarmModel.getTitles(_:),
+            items: items
+        )
     }
     
     func filterTitles(items: [HourAndMinute]) -> [String] {
-        
-        return Array(Set(items.map({ $0.title })))
-            .sorted(by: { $0 < $1 })
-            .filter { $0 != Constant.goodMorning }
-            .filter { $0 != Constant.blank }
-        
+        return self.alarmModel.filterTitles(
+            titles: self.alarmModel.getTitles(_:),
+            items: items
+        )
     }
     
     func insertSystemName(index: Int) -> String {
@@ -89,28 +84,22 @@ final class AlarmViewModel: ObservableObject {
     }
     
     func pickUpDayOfTheWeek() -> String {
-        
         return self.alarmModel.pickUpDayOfTheWeek(checkMarks: self.checkMarks)
-        
     }
     
     func pickUpDayOfTheWeek(checkMarks: [Bool]) -> String {
-        
         return self.alarmModel.pickUpDayOfTheWeek(checkMarks: checkMarks)
-        
     }
     
     func pickUpTime(date: Date) -> String {
-        
         return self.alarmModel.pickUpTime(date: date)
-        
     }
     
     func prepareItems(items: [HourAndMinute]) -> [[HourAndMinute]] {
-        
-        
-        return self.alarmModel.prepareItems(items: items)
-        
+        return self.alarmModel.prepareItems(
+            titles: self.alarmModel.getTitles(_:),
+            items: items
+        )
     }
     
     func registerAllNotifications() {
