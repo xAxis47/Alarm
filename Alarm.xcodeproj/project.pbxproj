@@ -7,33 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3EC124F8CD5D6C082EDB4E93 /* Pods_AlarmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D682837CDFE72B6BE622EAE2 /* Pods_AlarmTests.framework */; };
 		817B9972BADF06FB2635FD12 /* Pods_Alarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6529385D02043CC9FCB5F9FC /* Pods_Alarm.framework */; };
-		9DC373B0362F7C7CC3C3DA2B /* Pods_Alarm_AlarmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60902CA52F65D3FF7BBBE3C8 /* Pods_Alarm_AlarmUITests.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3440676E2D4476C500918847 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 344067522D4476C300918847 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 344067592D4476C300918847;
-			remoteInfo = Alarm;
-		};
-		344067782D4476C500918847 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 344067522D4476C300918847 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 344067592D4476C300918847;
-			remoteInfo = Alarm;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		256546481DCBEE3CDB55489A /* Pods-Alarm-AlarmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alarm-AlarmUITests.release.xcconfig"; path = "Target Support Files/Pods-Alarm-AlarmUITests/Pods-Alarm-AlarmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3440675A2D4476C300918847 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3440676D2D4476C500918847 /* AlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		344067772D4476C500918847 /* AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4767BB3A783E0672F7197A1D /* Pods-AlarmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlarmTests.release.xcconfig"; path = "Target Support Files/Pods-AlarmTests/Pods-AlarmTests.release.xcconfig"; sourceTree = "<group>"; };
 		60902CA52F65D3FF7BBBE3C8 /* Pods_Alarm_AlarmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alarm_AlarmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6529385D02043CC9FCB5F9FC /* Pods_Alarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,40 +31,6 @@
 			);
 			target = 344067592D4476C300918847 /* Alarm */;
 		};
-		34FF7DE72D47229100502A6C /* Exceptions for "Alarm" folder in "AlarmTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Common/AppDelegate.swift,
-				Common/Enum.swift,
-				Common/Extension.swift,
-				Common/ForegroundNotificationDelegate.swift,
-				Common/Identifier.swift,
-				Item/Item.swift,
-				Model/AlarmModel.swift,
-				Model/BackgroundTaskModel.swift,
-				Model/DataModel.swift,
-				Model/NotificationModel.swift,
-				ViewModel/AlarmViewModel.swift,
-			);
-			target = 3440676C2D4476C500918847 /* AlarmTests */;
-		};
-		34FF7DE82D47229100502A6C /* Exceptions for "Alarm" folder in "AlarmUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Common/AppDelegate.swift,
-				Common/Enum.swift,
-				Common/Extension.swift,
-				Common/ForegroundNotificationDelegate.swift,
-				Common/Identifier.swift,
-				Item/Item.swift,
-				Model/AlarmModel.swift,
-				Model/BackgroundTaskModel.swift,
-				Model/DataModel.swift,
-				Model/NotificationModel.swift,
-				ViewModel/AlarmViewModel.swift,
-			);
-			target = 344067762D4476C500918847 /* AlarmUITests */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -93,20 +38,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				34FF7DE12D45C1F200502A6C /* Exceptions for "Alarm" folder in "Alarm" target */,
-				34FF7DE72D47229100502A6C /* Exceptions for "Alarm" folder in "AlarmTests" target */,
-				34FF7DE82D47229100502A6C /* Exceptions for "Alarm" folder in "AlarmUITests" target */,
 			);
 			path = Alarm;
-			sourceTree = "<group>";
-		};
-		344067702D4476C500918847 /* AlarmTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AlarmTests;
-			sourceTree = "<group>";
-		};
-		3440677A2D4476C500918847 /* AlarmUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AlarmUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -117,22 +50,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				817B9972BADF06FB2635FD12 /* Pods_Alarm.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3440676A2D4476C500918847 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3EC124F8CD5D6C082EDB4E93 /* Pods_AlarmTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		344067742D4476C500918847 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9DC373B0362F7C7CC3C3DA2B /* Pods_Alarm_AlarmUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,8 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				3440675C2D4476C300918847 /* Alarm */,
-				344067702D4476C500918847 /* AlarmTests */,
-				3440677A2D4476C500918847 /* AlarmUITests */,
 				3440675B2D4476C300918847 /* Products */,
 				0212FBD3555B5813DC863D68 /* Pods */,
 				A6A41F45AC851F37D752711C /* Frameworks */,
@@ -168,8 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				3440675A2D4476C300918847 /* Alarm.app */,
-				3440676D2D4476C500918847 /* AlarmTests.xctest */,
-				344067772D4476C500918847 /* AlarmUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,52 +122,6 @@
 			productReference = 3440675A2D4476C300918847 /* Alarm.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3440676C2D4476C500918847 /* AlarmTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 344067842D4476C500918847 /* Build configuration list for PBXNativeTarget "AlarmTests" */;
-			buildPhases = (
-				388E62160E8A27A6A3CEF210 /* [CP] Check Pods Manifest.lock */,
-				344067692D4476C500918847 /* Sources */,
-				3440676A2D4476C500918847 /* Frameworks */,
-				3440676B2D4476C500918847 /* Resources */,
-				81BAE38E896390FD2480A6AB /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3440676F2D4476C500918847 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				344067702D4476C500918847 /* AlarmTests */,
-			);
-			name = AlarmTests;
-			productName = AlarmTests;
-			productReference = 3440676D2D4476C500918847 /* AlarmTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		344067762D4476C500918847 /* AlarmUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 344067872D4476C500918847 /* Build configuration list for PBXNativeTarget "AlarmUITests" */;
-			buildPhases = (
-				DA5FA363788C2DA86EA745D8 /* [CP] Check Pods Manifest.lock */,
-				344067732D4476C500918847 /* Sources */,
-				344067742D4476C500918847 /* Frameworks */,
-				344067752D4476C500918847 /* Resources */,
-				0BDA4841869191B630DD6882 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				344067792D4476C500918847 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				3440677A2D4476C500918847 /* AlarmUITests */,
-			);
-			name = AlarmUITests;
-			productName = AlarmUITests;
-			productReference = 344067772D4476C500918847 /* AlarmUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -267,14 +134,6 @@
 				TargetAttributes = {
 					344067592D4476C300918847 = {
 						CreatedOnToolsVersion = 16.2;
-					};
-					3440676C2D4476C500918847 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 344067592D4476C300918847;
-					};
-					344067762D4476C500918847 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 344067592D4476C300918847;
 					};
 				};
 			};
@@ -293,8 +152,6 @@
 			projectRoot = "";
 			targets = (
 				344067592D4476C300918847 /* Alarm */,
-				3440676C2D4476C500918847 /* AlarmTests */,
-				344067762D4476C500918847 /* AlarmUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -307,40 +164,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3440676B2D4476C500918847 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		344067752D4476C500918847 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0BDA4841869191B630DD6882 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Alarm-AlarmUITests/Pods-Alarm-AlarmUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Alarm-AlarmUITests/Pods-Alarm-AlarmUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Alarm-AlarmUITests/Pods-Alarm-AlarmUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		147E5BDB2ED8F87EE486C34D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,45 +189,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		388E62160E8A27A6A3CEF210 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AlarmTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		81BAE38E896390FD2480A6AB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AlarmTests/Pods-AlarmTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AlarmTests/Pods-AlarmTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AlarmTests/Pods-AlarmTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9F9DB96FCF63F176E88F06DB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,28 +206,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Alarm/Pods-Alarm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DA5FA363788C2DA86EA745D8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Alarm-AlarmUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -451,34 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		344067692D4476C500918847 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		344067732D4476C500918847 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3440676F2D4476C500918847 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 344067592D4476C300918847 /* Alarm */;
-			targetProxy = 3440676E2D4476C500918847 /* PBXContainerItemProxy */;
-		};
-		344067792D4476C500918847 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 344067592D4476C300918847 /* Alarm */;
-			targetProxy = 344067782D4476C500918847 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3440677F2D4476C500918847 /* Debug */ = {
@@ -679,104 +417,6 @@
 			};
 			name = Release;
 		};
-		344067852D4476C500918847 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD3BD4FC162F851FB101EF56 /* Pods-AlarmTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M9E39BPG84;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dev.kawagoe.wataru.AlarmTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Alarm";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		344067862D4476C500918847 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4767BB3A783E0672F7197A1D /* Pods-AlarmTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M9E39BPG84;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dev.kawagoe.wataru.AlarmTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Alarm";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		344067882D4476C500918847 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 995780E9EDFF2CD8D63FE753 /* Pods-Alarm-AlarmUITests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M9E39BPG84;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dev.kawagoe.wataru.AlarmUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = Alarm;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		344067892D4476C500918847 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 256546481DCBEE3CDB55489A /* Pods-Alarm-AlarmUITests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M9E39BPG84;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dev.kawagoe.wataru.AlarmUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = Alarm;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -794,24 +434,6 @@
 			buildConfigurations = (
 				344067822D4476C500918847 /* Debug */,
 				344067832D4476C500918847 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		344067842D4476C500918847 /* Build configuration list for PBXNativeTarget "AlarmTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				344067852D4476C500918847 /* Debug */,
-				344067862D4476C500918847 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		344067872D4476C500918847 /* Build configuration list for PBXNativeTarget "AlarmUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				344067882D4476C500918847 /* Debug */,
-				344067892D4476C500918847 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
