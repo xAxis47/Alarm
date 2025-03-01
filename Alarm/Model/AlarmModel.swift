@@ -95,18 +95,11 @@ class AlarmModel: ObservableObject {
     }
     
     func prepareItems(titles: ([HourAndMinute]) -> Set<String>, items: [HourAndMinute]) -> [[HourAndMinute]] {
-        
-        let headers: [String] = Array(titles(items))
+        return Array(titles(items))
             .sorted(by: { $0 > $1 })
-        
-        let doubleArray: [[HourAndMinute]] = headers.map { header -> [HourAndMinute] in
-            
-            return items.filter({ $0.title == header })
-            
-        }
-        
-        return doubleArray
-        
+            .map { header -> [HourAndMinute] in
+                return items.filter { $0.title == header }
+            }
     }
     
 }
