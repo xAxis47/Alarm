@@ -62,17 +62,11 @@ final class AlarmViewModel: ObservableObject {
     }
     
     func filterHeader(items: [HourAndMinute]) -> String {
-        return self.alarmModel.filterHeader(
-            titles: self.alarmModel.getTitles(_:),
-            items: items
-        )
+        return self.alarmModel.filterHeader(items: items)
     }
     
     func filterTitles(items: [HourAndMinute]) -> [String] {
-        return self.alarmModel.filterTitles(
-            titles: self.alarmModel.getTitles(_:),
-            items: items
-        )
+        return self.alarmModel.filterTitles(items: items)
     }
     
     func insertSystemName(index: Int) -> String {
@@ -96,10 +90,7 @@ final class AlarmViewModel: ObservableObject {
     }
     
     func prepareItems(items: [HourAndMinute]) -> [[HourAndMinute]] {
-        return self.alarmModel.prepareItems(
-            titles: self.alarmModel.getTitles(_:),
-            items: items
-        )
+        return self.alarmModel.prepareItems(items: items)
     }
     
     func registerAllNotifications() {

@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		341637F42DCB050800340263 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 341637F32DCB050800340263 /* SwiftDate */; };
+		341638892DCB18A100340263 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341638882DCB18A100340263 /* XCTest.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		349D3BC52DCAFA200080E068 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		341638882DCB18A100340263 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		349D3BB42DCAFA1E0080E068 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349D3BC42DCAFA200080E068 /* AlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		349D3BCE2DCAFA200080E068 /* AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341638892DCB18A100340263 /* XCTest.framework in Frameworks */,
+				341637F42DCB050800340263 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,12 +93,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		341637F22DCB050800340263 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				341638882DCB18A100340263 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		349D3BAB2DCAFA1E0080E068 = {
 			isa = PBXGroup;
 			children = (
 				349D3BB62DCAFA1F0080E068 /* Alarm */,
 				349D3BC72DCAFA200080E068 /* AlarmTests */,
 				349D3BD12DCAFA200080E068 /* AlarmUITests */,
+				341637F22DCB050800340263 /* Frameworks */,
 				349D3BB52DCAFA1E0080E068 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,6 +142,7 @@
 			);
 			name = Alarm;
 			packageProductDependencies = (
+				341637F32DCB050800340263 /* SwiftDate */,
 			);
 			productName = Alarm;
 			productReference = 349D3BB42DCAFA1E0080E068 /* Alarm.app */;
@@ -624,6 +642,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		341637F32DCB050800340263 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 349D3C3C2DCB03490080E068 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 349D3BAC2DCAFA1E0080E068 /* Project object */;
 }

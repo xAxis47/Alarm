@@ -13,21 +13,18 @@ import UIKit
 @MainActor
 class AlarmModel: ObservableObject {
     
-    func filterHeader(titles: ([HourAndMinute]) -> Set<String>, items: [HourAndMinute]) -> String {
-        return titles(items).first!
+    func filterHeader(items: [HourAndMinute]) -> String {
+        return items.map { $0.title }.first!
     }
     
-    func filterTitles(titles: ([HourAndMinute]) -> Set<String>, items: [HourAndMinute]) -> [String] {
-        return Array(titles(items))
+    func filterTitles(items: [HourAndMinute]) -> [String] {
+        return items
+            .map { $0.title }
             .sorted(by: { $0 < $1 })
             .filter { $0 != Constant.goodMorning }
             .filter { $0 != Constant.blank }
     }
     
-    func getTitles(_ items: [HourAndMinute]) -> Set<String> {
-        return Set(items.map { $0.title } )
-    }
-
     func insertSystemName(bool: Bool) -> String {
         
         if(bool) {
@@ -94,8 +91,9 @@ class AlarmModel: ObservableObject {
         
     }
     
-    func prepareItems(titles: ([HourAndMinute]) -> Set<String>, items: [HourAndMinute]) -> [[HourAndMinute]] {
-        return Array(titles(items))
+    func prepareItems(items: [HourAndMinute]) -> [[HourAndMinute]] {
+        return items
+            .map { $0.title }
             .sorted(by: { $0 > $1 })
             .map { header -> [HourAndMinute] in
                 return items.filter { $0.title == header }

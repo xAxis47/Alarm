@@ -27,7 +27,7 @@ struct MainSection: View {
         
         //element is item of header array.
         ForEach(items, id: \.self) { array in
-            
+
             let header = self.vm.filterHeader(items: array)
             
             //Section be created for each header.
