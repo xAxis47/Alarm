@@ -2,31 +2,45 @@
 //  AlarmApp.swift
 //  Alarm
 //
-//  Created by Kawagoe Wataru on 2025/05/07.
+//  Created by Kawagoe Wataru on 2024/06/20.
 //
 
 import SwiftUI
 import SwiftData
+import SwiftDate
+
 
 @main
+@MainActor
 struct AlarmApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-        .modelContainer(sharedModelContainer)
+    
+    let vm: AlarmViewModel = AlarmViewModel()
+    
+    init() {
+        
+        let region = Region(calendar: Calendars.gregorian, zone: Zones.asiaTokyo, locale: Locales.japanese)
+        SwiftDate.defaultRegion = region
+        
     }
+    
+    var body: some Scene {
+        
+        WindowGroup {
+            
+            MainView()
+                .environmentObject(self.vm)
+                .modelContainer(self.vm.dataModel.sharedModelContainer)
+            
+        }
+        //app refresh and register notification each 3 hours.
+        .backgroundTask(.appRefresh(Constant.refreshIdentifier)){
+            
+            await self.vm.scheduleAppRefresh()
+            await self.vm.registerAllNotifications()
+            
+        }
+        
+        
+    }
+    
 }

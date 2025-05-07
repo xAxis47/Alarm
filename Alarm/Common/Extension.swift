@@ -1,6 +1,6 @@
 //
 //  Extension.swift
-//  Alarms
+//  Alarm
 //
 //  Created by Kawagoe Wataru on 2024/06/29.
 //
