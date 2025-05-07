@@ -23,11 +23,15 @@ struct MainSection: View {
         
         //prepare header for section. header need to be sorted because the order is important.
 //        let list = self.vm.prepareList(items: items)
-        let items: [[HourAndMinute]] = self.vm.prepareItems(items: items)
+        let doubleItems: [[HourAndMinute]] = self.vm.prepareItems(items: items)
         
         //element is item of header array.
-        ForEach(items, id: \.self) { array in
-
+        ForEach(doubleItems, id: \.self) { array in
+            
+            let _ = print(doubleItems)
+            let _ = print(array)
+            
+            
             let header = self.vm.filterHeader(items: array)
             
             //Section be created for each header.

@@ -35,7 +35,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "349D3BC32DCAFA200080E068"
+               BlueprintIdentifier = "3447EC7A2DCC43E700AF4933"
                BuildableName = "AlarmTests.xctest"
                BlueprintName = "AlarmTests"
                ReferencedContainer = "container:Alarm.xcodeproj">
@@ -46,7 +46,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "349D3BCD2DCAFA200080E068"
+               BlueprintIdentifier = "3447EC872DCC440200AF4933"
                BuildableName = "AlarmUITests.xctest"
                BlueprintName = "AlarmUITests"
                ReferencedContainer = "container:Alarm.xcodeproj">

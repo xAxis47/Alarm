@@ -14,15 +14,23 @@ import UIKit
 class AlarmModel: ObservableObject {
     
     func filterHeader(items: [HourAndMinute]) -> String {
-        return items.map { $0.title }.first!
+        return items
+            .map { $0.title }
+            .first!
     }
     
     func filterTitles(items: [HourAndMinute]) -> [String] {
-        return items
+        
+        let titles = items
             .map { $0.title }
+        
+        let deleteDuplicates = Array(Set(titles))
+        
+        return deleteDuplicates
             .sorted(by: { $0 < $1 })
             .filter { $0 != Constant.goodMorning }
             .filter { $0 != Constant.blank }
+        
     }
     
     func insertSystemName(bool: Bool) -> String {
@@ -92,12 +100,18 @@ class AlarmModel: ObservableObject {
     }
     
     func prepareItems(items: [HourAndMinute]) -> [[HourAndMinute]] {
-        return items
+        
+        let titles = items
             .map { $0.title }
+        
+        let deleteDuplicates = Array(Set(titles))
+        
+        return deleteDuplicates
             .sorted(by: { $0 > $1 })
             .map { header -> [HourAndMinute] in
                 return items.filter { $0.title == header }
             }
+        
     }
     
 }

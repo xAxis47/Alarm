@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "5E3D7157-C82D-4817-B06D-1CE8F2E2CEF5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Alarm.xcodeproj",
+      "identifier" : "349D3BB32DCAFA1E0080E068",
+      "name" : "Alarm"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Alarm.xcodeproj",
+        "identifier" : "34B336DE2DCB3F930094D4CE",
+        "name" : "AlarmTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Alarm.xcodeproj",
+        "identifier" : "349D3BCD2DCAFA200080E068",
+        "name" : "AlarmUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
