@@ -28,10 +28,6 @@ struct MainSection: View {
         //element is item of header array.
         ForEach(doubleItems, id: \.self) { array in
             
-            let _ = print(doubleItems)
-            let _ = print(array)
-            
-            
             let header = self.vm.filterHeader(items: array)
             
             //Section be created for each header.

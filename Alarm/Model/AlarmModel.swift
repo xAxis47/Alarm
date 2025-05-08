@@ -107,7 +107,7 @@ class AlarmModel: ObservableObject {
         let deleteDuplicates = Array(Set(titles))
         
         return deleteDuplicates
-            .sorted(by: { $0 > $1 })
+            .sorted(by: { $0 < $1 })
             .map { header -> [HourAndMinute] in
                 return items.filter { $0.title == header }
             }
