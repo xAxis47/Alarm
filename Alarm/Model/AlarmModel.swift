@@ -48,10 +48,10 @@ class AlarmModel: ObservableObject {
     }
     
     //write string of the days of the week or "everyday".
-    func pickUpDayOfTheWeek(checkMarks: [Bool]) -> String {
+    func pickUpDayOfTheWeek(checkMarks: [Flag]) -> String {
         
         let trueCount = checkMarks
-            .filter { $0 }
+            .filter { $0.bool }
         
         if(trueCount.count == 7) {
             
@@ -59,9 +59,9 @@ class AlarmModel: ObservableObject {
             
         } else {
             
-            let days = checkMarks.enumerated().map { index, bool in
+            let days = checkMarks.enumerated().map { index, flag in
                 
-                if(bool) {
+                if(flag.bool) {
                     
                     return Constant.dayInitialsArray[index]
                     

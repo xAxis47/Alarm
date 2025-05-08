@@ -5,6 +5,7 @@
 //  Created by Kawagoe Wataru on 2024/06/20.
 //
 
+import UIKit
 import SwiftUI
 import SwiftData
 import SwiftDate
@@ -14,12 +15,16 @@ import SwiftDate
 @MainActor
 struct AlarmApp: App {
     
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     let vm: AlarmViewModel = AlarmViewModel()
     
     init() {
         
         let region = Region(calendar: Calendars.gregorian, zone: Zones.asiaTokyo, locale: Locales.japanese)
         SwiftDate.defaultRegion = region
+        
+        self.vm.registerAllNotifications()
         
     }
     
@@ -35,8 +40,8 @@ struct AlarmApp: App {
         //app refresh and register notification each 3 hours.
         .backgroundTask(.appRefresh(Constant.refreshIdentifier)){
             
-            await self.vm.scheduleAppRefresh()
             await self.vm.registerAllNotifications()
+            await self.vm.scheduleAppRefresh()
             
         }
         

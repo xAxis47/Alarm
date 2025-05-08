@@ -47,8 +47,6 @@ class DataModel {
                
                 self.context.delete(items[index])
                 
-                fetchItems().forEach { print($0.date) }
-                
             }
             
         }

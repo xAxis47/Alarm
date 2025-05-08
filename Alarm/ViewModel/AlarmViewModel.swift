@@ -28,7 +28,7 @@ final class AlarmViewModel: ObservableObject {
     let notificationModel: NotificationModel = NotificationModel()
     
     //view property
-    var checkMarks: [Bool] = Constant.trueArray
+    var checkMarks: [Flag] = Constant.trueArray
     var date: Date = Constant.initialDate
     var title: String = ""
     
@@ -69,9 +69,13 @@ final class AlarmViewModel: ObservableObject {
         return self.alarmModel.filterTitles(items: items)
     }
     
+    func getAllNotifications() {
+        return self.notificationModel.getAllNotifications()
+    }
+    
     func insertSystemName(index: Int) -> String {
     
-        let bool = checkMarks[index]
+        let bool = checkMarks[index].bool
         
         return self.alarmModel.insertSystemName(bool: bool)
         
@@ -81,7 +85,7 @@ final class AlarmViewModel: ObservableObject {
         return self.alarmModel.pickUpDayOfTheWeek(checkMarks: self.checkMarks)
     }
     
-    func pickUpDayOfTheWeek(checkMarks: [Bool]) -> String {
+    func pickUpDayOfTheWeek(checkMarks: [Flag]) -> String {
         return self.alarmModel.pickUpDayOfTheWeek(checkMarks: checkMarks)
     }
     
@@ -195,9 +199,9 @@ final class AlarmViewModel: ObservableObject {
     func tapMarkCell(index: Int) {
         
         //decide ringing sound or not here.
-        self.checkMarks[index].toggle()
+        self.checkMarks[index].bool.toggle()
         
-        let trueCount = self.checkMarks.filter { $0 }
+        let trueCount = self.checkMarks.filter { $0.bool }
             .count
         
         //this alert is called when there are no icons.
@@ -206,7 +210,7 @@ final class AlarmViewModel: ObservableObject {
             self.zeroTrueAlertIsPresented = true
             
             //the number of icons cant remain at 0, so display the icons again here.
-            self.checkMarks[index].toggle()
+            self.checkMarks[index].bool.toggle()
             
         }
         

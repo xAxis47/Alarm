@@ -77,7 +77,7 @@ final class NotificationModel {
             
         } else {
             
-            //if not isToday, qeual next day, add 1.
+            //if not isToday, equal next day, add 1.
             temporary = weekday - 1 + 1
             
         }
@@ -130,6 +130,14 @@ final class NotificationModel {
         
     }
     
+    func getAllNotifications() {
+        
+        self.center.getPendingNotificationRequests(completionHandler: { requests in
+            requests.forEach { request in print("request is \(request)")}
+        })
+        
+    }
+    
     //request include string at content, trigger at time interval, and identifier.
     func requestNotification(body: String, identifier: String, soundName: String, suffix: String, count: Int, timeInterval: TimeInterval, title: String) {
         
@@ -163,7 +171,6 @@ final class NotificationModel {
         
     }
     
-    //this function is most important of this App. at first remove registered notification, bring and assign items to itemsToday or itemsNextDay. after that check conditions(isOn and through checkMarks), carry out function.
     func registerAllNotifications(items: [HourAndMinute]) {
         
         self.center.removeAllPendingNotificationRequests()
@@ -171,39 +178,29 @@ final class NotificationModel {
         
         let currentDate = Date()
         
-//        let items = self.fetchItems()
-        
         items.forEach { item in
             
             if(item.isOn) {
+//                
+//                let condition = self.checkDailyCondition(
+//                    checkMarks: item.checkMarks,
+//                    isToday: true
+//                )
+//
+                let todayIndex = currentDate.weekday - 1
+                let nextDayIndex = currentDate.weekday
                 
-                let condition = self.checkDailyCondition(
-                    checkMarks: item.checkMarks,
-                    isToday: true
-                )
+                let todayBool = item.checkMarks[todayIndex].bool
+                let nextDayBool = item.checkMarks[nextDayIndex].bool
                 
                 self.addNotification(
-                    condition: condition,
+                    condition: todayBool,
                     count: Constant.today,
                     currentDate: currentDate,
                     item: item
                 )
-                
-            }
-            
-        }
-        
-        items.forEach { item in
-            
-            if(item.isOn) {
-                
-                let condition = self.checkDailyCondition(
-                    checkMarks: item.checkMarks,
-                    isToday: false
-                )
-                
                 self.addNotification(
-                    condition: condition,
+                    condition: nextDayBool,
                     count: Constant.nextDay,
                     currentDate: currentDate,
                     item: item
@@ -212,7 +209,79 @@ final class NotificationModel {
             }
             
         }
-        
+//        
+//        items.forEach { item in
+//            
+//            if(item.isOn) {
+//                
+//                let condition = self.checkDailyCondition(
+//                    checkMarks: item.checkMarks,
+//                    isToday: false
+//                )
+//                
+//                self.addNotification(
+//                    condition: condition,
+//                    count: Constant.nextDay,
+//                    currentDate: currentDate,
+//                    item: item
+//                )
+//                
+//            }
+//            
+//        }
+//        
     }
+    
+    //this function is most important of this App. at first remove registered notification, bring and assign items to itemsToday or itemsNextDay. after that check conditions(isOn and through checkMarks), carry out function.
+//    func registerAllNotifications(items: [HourAndMinute]) {
+//        
+//        self.center.removeAllPendingNotificationRequests()
+//        self.center.removeAllDeliveredNotifications()
+//        
+//        let currentDate = Date()
+//
+//        print("items is \(items)")
+//        
+//        items.forEach { item in
+//            
+//            if(item.isOn) {
+//                
+//                let condition = self.checkDailyCondition(
+//                    checkMarks: item.checkMarks,
+//                    isToday: true
+//                )
+//                
+//                self.addNotification(
+//                    condition: condition,
+//                    count: Constant.today,
+//                    currentDate: currentDate,
+//                    item: item
+//                )
+//                
+//            }
+//            
+//        }
+//        
+//        items.forEach { item in
+//            
+//            if(item.isOn) {
+//                
+//                let condition = self.checkDailyCondition(
+//                    checkMarks: item.checkMarks,
+//                    isToday: false
+//                )
+//                
+//                self.addNotification(
+//                    condition: condition,
+//                    count: Constant.nextDay,
+//                    currentDate: currentDate,
+//                    item: item
+//                )
+//                
+//            }
+//            
+//        }
+//        
+//    }
     
 }

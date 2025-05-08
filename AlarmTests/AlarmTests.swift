@@ -84,9 +84,34 @@ final class AlarmTests: XCTestCase {
         let leftSideDoubleArray: [[String]] = aModel
             .prepareItems(items: items)
             .map { [$0.first!.title] }
-        let rightSideDoubleArray: [[String]] = [["3"], ["2"], ["1"], ["0"]]
+        let rightSideDoubleArray: [[String]] = [["0"], ["1"], ["2"], ["3"]]
         
         XCTAssertTrue(leftSideDoubleArray == rightSideDoubleArray, "return value of prepareItems is not items' double array")
+        
+    }
+    
+    let bModel: BackgroundTaskModel = BackgroundTaskModel()
+    
+    func testRegisterBackgroundTask() throws {
+        
+        bModel.scheduleAppRefresh()
+        
+    }
+    
+    let dModel: DataModel = DataModel()
+    
+    func testDeleteItems() throws {
+        
+        let items = dModel.fetchItems()
+        
+        print("items: \(items.count)")
+        
+        let array: [Int] = items.enumerated().map {  $0.offset }
+        let indexSet: IndexSet = IndexSet(array)
+
+        dModel.deleteItems(offsets: indexSet)
+      
+        XCTAssert(dModel.fetchItems().count == 0, "item is remaining")
         
     }
     

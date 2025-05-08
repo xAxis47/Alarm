@@ -8,10 +8,16 @@
 import Foundation
 import SwiftData
 
-@Model
-final class HourAndMinute {
+struct Flag: Codable, Equatable {
     
-    var checkMarks: [Bool] = Constant.trueArray
+    var bool: Bool
+    
+}
+
+@Model
+final class HourAndMinute: Hashable {
+    
+    var checkMarks: [Flag] = Constant.trueArray
     @Attribute(.unique) var date: Date = Constant.initialDate
     var isOn: Bool = true
     var title: String = Constant.goodMorning
@@ -37,7 +43,7 @@ final class HourAndMinute {
         
     }
     
-    init(checkMarks: [Bool], date: Date, title: String) {
+    init(checkMarks: [Flag], date: Date, title: String) {
         
         self.checkMarks = checkMarks
         self.date = date
@@ -47,7 +53,7 @@ final class HourAndMinute {
         
     }
     
-    init(checkMarks: [Bool], date: Date, isOn: Bool, title: String, uuid: UUID) {
+    init(checkMarks: [Flag], date: Date, isOn: Bool, title: String, uuid: UUID) {
         
         self.checkMarks = checkMarks
         self.date = date
@@ -55,6 +61,10 @@ final class HourAndMinute {
         self.title = title
         self.uuid = uuid
         
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
     }
     
 }
