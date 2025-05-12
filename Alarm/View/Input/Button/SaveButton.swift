@@ -28,7 +28,7 @@ struct SaveButton: View {
             Text(Constant.save)
             
         }
-        .accessibilityIdentifier(Identifier.input.saveButton)
+        .accessibilityIdentifier(Identifier.saveButton)
         
     }
     

@@ -7,57 +7,53 @@
 
 enum Identifier {
     
-    enum main {
-        
-        static let dayOfTheWeek: String = "main_day_of_the_week_Label"
-        static let time: String = "main_time_Label"
-        
-        //cell's model is "\(.cellButton)_\(index)".
-        static let cellButton: String = "main_cell_button"
-        static let plusButton: String = "main_plus_button"
-        
-        static let list: String = "main_list"
-        //cell's model is "\(.mainSection)_\(header)".
-        static let mainSection: String = "main_section"
-        
-        //toggle's model is "\(.toggle)_\(index)".
-        static let toggle: String = "main_toggle"
-        
-        static let view: String = "main_view"
-        
-    }
+    //main
+    static let dayOfTheWeek = "main_day_of_the_week_Label"
+    static let time = "main_time_Label"
     
-    enum input {
-        
-        static let datepicker: String = "input_datepicker"
-        static let menu: String = "input_menu"
-        static let navigationLink: String = "input_navigationLink"
-        static let textfield: String = "input_textfield"
-        
-        static let cancelButton: String = "input_cancel_button"
-        static let menuButton: String = "input_menu_button"
-        static let saveButton: String = "input_save_button"
-        
-        static let list: String = "input_list"
-        
-        static let datepickerSection: String = "input_datepicker_section"
-        static let settingSection: String = "input_setting_section"
-        
-        static let view: String = "input_view"
-        
-    }
+    //cell's model is "\(.cellButton)_\(index)".
+    static let cellButton = "main_cell_button"
+    static let plusButton = "main_plus_button"
     
-    enum mark {
-        
-        //button's model is "\(.button)_\(index)".
-        static let button: String = "mark_button"
-        
-        static let image: String = "mark_image"
-        
-        static let list: String = "mark_list"
-        
-        static let view: String = "mark_view"
-        
-    }
+    static let mainList = "main_list"
+    //cell's model is "\(.mainSection)_\(header)".
+    static let mainSection = "main_section"
+    
+    static let mainHeader = "main_header"
+    
+    //toggle's model is "\(.toggle)_\(index)".
+    static let toggle = "main_toggle"
+    
+    static let mainView = "main_view"
+    
+    //input
+    static let datepicker = "input_datepicker"
+    static let menu = "input_menu"
+    static let navigationLink = "input_navigationLink"
+    static let repetition = "input_repetition_label"
+    static let textfield = "input_textfield"
+    
+    static let cancelButton = "input_cancel_button"
+    static let menuButton = "input_menu_button"
+    static let saveButton = "input_save_button"
+    
+    static let inputList = "input_list"
+    
+    static let datepickerSection = "input_datepicker_section"
+    static let settingSection = "input_setting_section"
+    
+    static let inputView = "input_view"
+    
+    //mark
+    //button's model is "\(.button)_\(index)".
+    static let markBackward = "mark_backward"
+    
+    static let markButton = "mark_button"
+    
+    static let markImage = "mark_image"
+    
+    static let markList = "mark_list"
+    
+    static let markView = "mark_view"
     
 }

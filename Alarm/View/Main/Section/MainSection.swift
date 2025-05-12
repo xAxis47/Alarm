@@ -13,17 +13,18 @@ struct MainSection: View {
     
     @EnvironmentObject private var vm: AlarmViewModel
     
-    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
+//    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
+//    
+//    init() {
+//        print(items)
+//    }
     
-    init() {
-        
-    }
-
     var body: some View {
         
         //prepare header for section. header need to be sorted because the order is important.
 //        let list = self.vm.prepareList(items: items)
-        let doubleItems: [[HourAndMinute]] = self.vm.prepareItems(items: items)
+        
+        let doubleItems: [[HourAndMinute]] = self.vm.prepareItems()
         
         //element is item of header array.
         ForEach(doubleItems, id: \.self) { array in
@@ -35,14 +36,14 @@ struct MainSection: View {
                 
                 //make cells in the section.
                 ForEach(array) { item in
-                
+                    
                     let index = array.firstIndex(of: item) ?? 100
                     
                     //"time" indicate when alarm will ring on the day.
                     let time = self.vm.pickUpTime(date: item.date)
                     
-                     //"dayOfTheWeek" express when during the week will ring.
-                     let dayOfTheWeek = self.vm.pickUpDayOfTheWeek(checkMarks: item.checkMarks)
+                    //"dayOfTheWeek" express when during the week will ring.
+                    let dayOfTheWeek = self.vm.pickUpDayOfTheWeek(checkMarks: item.checkMarks)
                     
                     Button(action: {
                         
@@ -51,46 +52,48 @@ struct MainSection: View {
                     }) {
                         
                         Toggle(isOn: Bindable(item).isOn) {
-                           
-                           VStack {
-                                  
-                               Text(time)
-                                   .font(.custom("bold", size: 48))
-                                   .frame(maxWidth: .infinity, alignment: .leading)
-                                   .accessibilityIdentifier("\(Identifier.main.time)_\(index)")
-                               
-                               Text(dayOfTheWeek)
-                                   .font(.footnote)
-                                   .frame(maxWidth: .infinity, alignment: .leading)
-                                   .accessibilityIdentifier("\(Identifier.main.dayOfTheWeek)_\(index)")
-                               
-                           }
-                           
+                            
+                            VStack {
+                                
+                                Text(time)
+                                    .font(.custom("bold", size: 48))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .accessibilityIdentifier("\(Identifier.time)_\(index)")
+                                
+                                Text(dayOfTheWeek)
+                                    .font(.footnote)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .accessibilityIdentifier("\(Identifier.dayOfTheWeek)_\(index)")
+                                
+                            }
+                            
                         }
                         .padding(6)
                         .onChange(of: item.isOn) {
-                           
+                            
                             //when toggle is changed, register notification again.
                             self.vm.changeToggle()
-                           
+                            
                         }
-                        .accessibilityIdentifier("\(Identifier.main.toggle)_\(index)")
-                           
+                        .accessibilityIdentifier("\(Identifier.toggle)_\(index)")
+                        
                     }
                     .foregroundStyle(.foreground)
-                    .accessibilityIdentifier("\(Identifier.main.cellButton)_\(index)")
-
+                    .accessibilityIdentifier("\(Identifier.cellButton)_\(index)")
                     
                 }
                 .onDelete(perform: self.vm.deleteItems)
                 
             }, header: {
                 
-                Text(header)
-                    .font(.title)
+                    Text(header)
+                        .font(.title)
                 
-            })
-            .accessibilityIdentifier("\(Identifier.main.mainSection)_\(header)")
+                }
+                    
+            )
+            .accessibilityIdentifier("\(Identifier.mainSection)_\(header)")
+            
         }
         
     }

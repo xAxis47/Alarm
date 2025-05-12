@@ -28,10 +28,10 @@ struct DatePickerSection: View {
             .datePickerStyle(.wheel)
             .labelsHidden()
             .environment(\.locale, Locale(identifier: Constant.japaneseIdentifier))
-            .accessibilityIdentifier(Identifier.input.datepicker)
+            .accessibilityIdentifier(Identifier.datepicker)
             
         }
-        .accessibilityIdentifier(Identifier.input.datepickerSection)
+        .accessibilityIdentifier(Identifier.datepickerSection)
         
     }
     

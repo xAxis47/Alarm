@@ -10,6 +10,9 @@ import SwiftUI
 @MainActor
 class DataModel {
     
+    //this is for test. it's don't use in other struct or class.
+    var testNumber: Int = 0
+    
     let sharedModelContainer: ModelContainer
     
     let context: ModelContext
@@ -41,14 +44,10 @@ class DataModel {
         
         let items = fetchItems()
         
-        withAnimation {
+        for index in offsets {
             
-            for index in offsets {
-               
-                self.context.delete(items[index])
-                
-            }
-            
+             self.context.delete(items[index])
+             
         }
         
     }
@@ -58,13 +57,13 @@ class DataModel {
         do {
             
             let descriptor = FetchDescriptor<HourAndMinute>(
-                predicate: #Predicate { item in item.uuid ==  uuid },
+                predicate: #Predicate { item in item.uuid == uuid },
                 sortBy: [SortDescriptor(\.date, order: .forward)]
             )
             
             let items = try self.context.fetch(descriptor)
             
-            return items.first ?? HourAndMinute()
+            return items.first!
             
         } catch {
             
@@ -119,10 +118,6 @@ class DataModel {
             .filter { $0.date == item.date }
             .count
         
-        let updateItem = self.fetchItem(uuid: indexUUID)
-    
-        //EditorialType
-        
         //when ".add", dont overlap items and title is blank, can insert new item of "HourAndMinute". then new item's title is "Constant.other".
         if(type == .add && overlap == 0 && item.title == Constant.blank) {
             
@@ -145,7 +140,11 @@ class DataModel {
             return true
             
             //if variables of "HourAndMinute" dont change anything, simply dismiss.
-        } else if(type == .edit && updateItem.checkMarks == item.checkMarks && updateItem.date == item.date && updateItem.title == item.title) {
+        }
+        
+        let updateItem = self.fetchItem(uuid: indexUUID)
+        
+        if(type == .edit && updateItem.checkMarks == item.checkMarks && updateItem.date == item.date && updateItem.title == item.title) {
             
             noChangeEditItem()
             
@@ -183,6 +182,7 @@ class DataModel {
         func blankTitleNewItem() {
             
             print("0")
+            testNumber = 0
             
             let newItem = HourAndMinute(
                 checkMarks: item.checkMarks,
@@ -193,12 +193,14 @@ class DataModel {
             )
             
             self.context.insert(newItem)
+            self.saveContext()
             
         }
         
         func otherTitleNewItem() {
             
             print("1")
+            testNumber = 1
             
             let newItem = HourAndMinute(
                 checkMarks: item.checkMarks,
@@ -209,24 +211,28 @@ class DataModel {
             )
             
             self.context.insert(newItem)
+            self.saveContext()
             
         }
         
         func conflictAlert() {
             
             print("2")
+            testNumber = 2
             
         }
         
         func noChangeEditItem() {
             
             print("3")
+            testNumber = 3
             
         }
         
         func blankEditItem() {
             
             print("4")
+            testNumber = 4
             
             updateItem.checkMarks = item.checkMarks
             updateItem.date = item.date
@@ -240,6 +246,7 @@ class DataModel {
         func editTitleItem() {
             
             print("5")
+            testNumber = 5
             
             updateItem.checkMarks = item.checkMarks
             updateItem.date = item.date
@@ -253,6 +260,7 @@ class DataModel {
         func editCheckmarkAndTitleItem() {
             
             print("6")
+            testNumber = 6
             
             updateItem.checkMarks = item.checkMarks
             updateItem.date = item.date

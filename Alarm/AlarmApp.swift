@@ -15,8 +15,6 @@ import SwiftDate
 @MainActor
 struct AlarmApp: App {
     
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
     let vm: AlarmViewModel = AlarmViewModel()
     
     init() {
@@ -33,16 +31,24 @@ struct AlarmApp: App {
         WindowGroup {
             
             MainView()
-                .environmentObject(self.vm)
-                .modelContainer(self.vm.dataModel.sharedModelContainer)
-            
         }
+        .environmentObject(self.vm)
+        .modelContainer(self.vm.dataModel.sharedModelContainer)
+    
         //app refresh and register notification each 3 hours.
-        .backgroundTask(.appRefresh(Constant.refreshIdentifier)){
+        .backgroundTask(.appRefresh(Constant.refreshIdentifier)) {
             
-            await self.vm.registerAllNotifications()
-            await self.vm.scheduleAppRefresh()
-            
+            await withTaskCancellationHandler {
+                
+                await self.vm.scheduleAppRefresh()
+                await self.vm.registerAllNotifications()
+                
+            } onCancel: {
+                
+                 print("cancel")
+                
+            }
+
         }
         
         

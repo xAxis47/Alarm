@@ -18,7 +18,6 @@ enum Constant {
     static let deleteEnglish: String = "delete"
     static let everyday: String = "毎日"
     static let goodMorning: String = "起床"
-    static let initialBool: Bool = true
     static let initialDate: Date = Date(timeIntervalSince1970: 0)
     static let initialTitle: String = ""
     static let isOn: String = "アラームをかける"
@@ -50,10 +49,9 @@ enum Constant {
     static let zeroTrueAlertTitle = "最低限一つの曜日を選択する必要があります。"
     
     static let singleComma: String = ","
-    static let multipleComma: String = ",,"
     
-    static let trueFlag: Flag = Flag(bool: true)
     static let falseFlag: Flag = Flag(bool: false)
+    static let trueFlag: Flag = Flag(bool: true)
     
     static let falseArray: [Flag] = [falseFlag, falseFlag, falseFlag, falseFlag, falseFlag, falseFlag, falseFlag]
     static let trueArray: [Flag] = [trueFlag, trueFlag, trueFlag, trueFlag, trueFlag, trueFlag, trueFlag]

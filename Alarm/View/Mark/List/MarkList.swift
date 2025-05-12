@@ -32,7 +32,7 @@ struct MarkList: View {
                         
                         Image(systemName: self.vm.insertSystemName(index: index))
                             .foregroundStyle(.orange)
-                            .accessibilityIdentifier("\(Identifier.mark.image)_ \(index)")
+                            .accessibilityIdentifier("\(Identifier.markImage)_ \(index)")
                         
                     }
                     .padding()
@@ -40,13 +40,13 @@ struct MarkList: View {
                 }
                 .foregroundStyle(.foreground)
                 .listRowInsets(.init())
-                .accessibilityIdentifier("\(Identifier.mark.button)_\(index)")
+                .accessibilityIdentifier("\(Identifier.markButton)_\(index)")
 
                 
             }
             
         }
-        .accessibilityIdentifier(Identifier.mark.list)
+        .accessibilityIdentifier(Identifier.markList)
     
     }
         

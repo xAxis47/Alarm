@@ -11,7 +11,7 @@ class BackgroundTaskModel {
     func scheduleAppRefresh() {
         
         let today = Date()
-        let nextDate = Date(year: today.year, month: today.month, day: today.day, hour: 23, minute: 50)
+        let nextDate = today.addingTimeInterval(10)
 
         let request = BGAppRefreshTaskRequest(identifier: Constant.refreshIdentifier)
         request.earliestBeginDate = nextDate

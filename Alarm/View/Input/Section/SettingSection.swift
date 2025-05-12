@@ -29,6 +29,7 @@ struct SettingSection: View {
                 HStack {
                     
                     Text(Constant.repetition)
+                        .accessibilityIdentifier(Identifier.repetition)
                     
                     Spacer()
                     
@@ -38,7 +39,7 @@ struct SettingSection: View {
                 }
                 
             }
-            .accessibilityIdentifier(Identifier.input.navigationLink)
+            .accessibilityIdentifier(Identifier.navigationLink)
            
             HStack {
                 
@@ -81,20 +82,20 @@ struct SettingSection: View {
                     
                 }
                 .foregroundStyle(.foreground)
-                .accessibilityIdentifier(Identifier.input.menu)
+                .accessibilityIdentifier(Identifier.menu)
                 
                 Spacer()
                 
                 //here register the title on the TextField.
                 TextField(Constant.title, text: self.$vm.title)
                     .multilineTextAlignment(.trailing)
-                    .accessibilityIdentifier(Identifier.input.textfield)
+                    .accessibilityIdentifier(Identifier.textfield)
                     
                 
             }
             
         }
-        .accessibilityIdentifier(Identifier.input.settingSection)
+        .accessibilityIdentifier(Identifier.settingSection)
         
     }
     

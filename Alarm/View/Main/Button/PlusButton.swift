@@ -13,20 +13,20 @@ struct PlusButton: View {
     
     @EnvironmentObject private var vm: AlarmViewModel
     
-    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
+//    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
     
     var body: some View {
         
         Button(action: {
             
-            self.vm.tapPlusButton(items: items)
+            self.vm.tapPlusButton()
             
         }) {
             
             Label("", systemImage: "plus")
             
         }
-        .accessibilityIdentifier(Identifier.main.plusButton)
+        .accessibilityIdentifier(Identifier.plusButton)
         
     }
     

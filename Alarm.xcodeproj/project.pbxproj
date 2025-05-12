@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		341637F42DCB050800340263 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 341637F32DCB050800340263 /* SwiftDate */; };
+		346E3E832DDB054A007C9486 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 346E3E822DDB054A007C9486 /* SwiftDate */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,20 +28,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		341638882DCB18A100340263 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3447EC7B2DCC43E700AF4933 /* AlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3447EC882DCC440200AF4933 /* AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		346E3E7F2DDB04B6007C9486 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		349D3BB42DCAFA1E0080E068 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		34C199BB2DCB359E007237C2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		349D3C422DCB038D0080E068 /* Exceptions for "Alarm" folder in "Alarm" target */ = {
+		3480F0042DDB0172009DBF87 /* Exceptions for "Alarm" folder in "AlarmTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				forsilence.mp3,
+				sound.mp3,
+			);
+			target = 3447EC7A2DCC43E700AF4933 /* AlarmTests */;
+		};
+		3480F0052DDB0181009DBF87 /* Exceptions for "Alarm" folder in "Alarm" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
 			target = 349D3BB32DCAFA1E0080E068 /* Alarm */;
+		};
+		34F9C3672DDB2568008A3D77 /* Exceptions for "Alarm" folder in "AlarmUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Common/Identifier.swift,
+			);
+			target = 3447EC872DCC440200AF4933 /* AlarmUITests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -59,7 +74,9 @@
 		349D3BB62DCAFA1F0080E068 /* Alarm */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				349D3C422DCB038D0080E068 /* Exceptions for "Alarm" folder in "Alarm" target */,
+				3480F0052DDB0181009DBF87 /* Exceptions for "Alarm" folder in "Alarm" target */,
+				3480F0042DDB0172009DBF87 /* Exceptions for "Alarm" folder in "AlarmTests" target */,
+				34F9C3672DDB2568008A3D77 /* Exceptions for "Alarm" folder in "AlarmUITests" target */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -85,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				341637F42DCB050800340263 /* SwiftDate in Frameworks */,
+				346E3E832DDB054A007C9486 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +112,7 @@
 		341637F22DCB050800340263 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				34C199BB2DCB359E007237C2 /* XCTest.framework */,
-				341638882DCB18A100340263 /* XCTest.framework */,
+				346E3E7F2DDB04B6007C9486 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,7 +204,7 @@
 			);
 			name = Alarm;
 			packageProductDependencies = (
-				341637F32DCB050800340263 /* SwiftDate */,
+				346E3E822DDB054A007C9486 /* SwiftDate */,
 			);
 			productName = Alarm;
 			productReference = 349D3BB42DCAFA1E0080E068 /* Alarm.app */;
@@ -227,7 +243,7 @@
 			mainGroup = 349D3BAB2DCAFA1E0080E068;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				349D3C3C2DCB03490080E068 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				346E3E812DDB054A007C9486 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 349D3BB52DCAFA1E0080E068 /* Products */;
@@ -306,6 +322,7 @@
 		3447EC822DCC43E700AF4933 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -316,9 +333,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dev.kawagoe.wataru.AlarmTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Alarm";
 			};
 			name = Debug;
@@ -326,6 +347,7 @@
 		3447EC832DCC43E700AF4933 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -336,9 +358,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.dev.kawagoe.wataru.AlarmTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alarm.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Alarm";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -347,6 +373,7 @@
 		3447EC912DCC440200AF4933 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M9E39BPG84;
@@ -370,6 +397,7 @@
 		3447EC922DCC440200AF4933 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M9E39BPG84;
@@ -430,6 +458,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -448,6 +477,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
@@ -493,6 +523,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -504,6 +535,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 			};
@@ -520,6 +552,7 @@
 				DEVELOPMENT_TEAM = M9E39BPG84;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Alarm/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -532,7 +565,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -562,6 +595,7 @@
 				DEVELOPMENT_TEAM = M9E39BPG84;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Alarm/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -574,7 +608,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -635,7 +669,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		349D3C3C2DCB03490080E068 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+		346E3E812DDB054A007C9486 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
 			requirement = {
@@ -646,9 +680,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		341637F32DCB050800340263 /* SwiftDate */ = {
+		346E3E822DDB054A007C9486 /* SwiftDate */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 349D3C3C2DCB03490080E068 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			package = 346E3E812DDB054A007C9486 /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDate;
 		};
 /* End XCSwiftPackageProductDependency section */

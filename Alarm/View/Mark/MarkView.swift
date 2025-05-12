@@ -11,6 +11,8 @@ import SwiftData
 //On MarkView, represent the days of the week and isOn or not. in this view, decide which days of the week the sound will be played. if tap orange icon, become off.
 struct MarkView: View {
     
+    @Environment(\.dismiss) var dismiss
+
     @EnvironmentObject private var vm: AlarmViewModel
     
     var body: some View {
@@ -28,8 +30,30 @@ struct MarkView: View {
             }
             
         }
-        .accessibilityIdentifier(Identifier.mark.view)
-        
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            
+            ToolbarItem(placement: .topBarLeading) {
+                
+                Button(
+                    
+                    action: {
+                        
+                        dismiss()
+                        
+                    }, label: {
+                        
+                        (Text(Image(systemName: "chevron.backward")))
+                        
+                    }
+                    
+                )
+                .accessibilityIdentifier(Identifier.markBackward)
+                
+            }
+            
+        }
+        .accessibilityIdentifier(Identifier.markView)
     }
     
 }

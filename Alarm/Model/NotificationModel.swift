@@ -62,7 +62,7 @@ final class NotificationModel {
     }
     
     //"checkMarks[index]" is express on or off of the days of the week. if not isToday is next day. index is assigned from temporary.
-    func checkDailyCondition(checkMarks: [Bool], isToday: Bool) -> Bool {
+    func checkDailyCondition(checkMarks: [Flag], isToday: Bool) -> Bool {
         
         //weekday return 1 ~ 7. 1 is Sunday and 7 is Saturday.
         let weekday = Date().weekday
@@ -96,7 +96,7 @@ final class NotificationModel {
         }
         
         //call specific days of the week
-        return checkMarks[index]
+        return checkMarks[index].bool
         
     }
     
@@ -127,14 +127,6 @@ final class NotificationModel {
         let timeInterval = (targetDate - currentDate).timeInterval
         
         return timeInterval
-        
-    }
-    
-    func getAllNotifications() {
-        
-        self.center.getPendingNotificationRequests(completionHandler: { requests in
-            requests.forEach { request in print("request is \(request)")}
-        })
         
     }
     
@@ -187,8 +179,18 @@ final class NotificationModel {
 //                    isToday: true
 //                )
 //
-                let todayIndex = currentDate.weekday - 1
-                let nextDayIndex = currentDate.weekday
+                let todayIndex: Int = currentDate.weekday - 1
+                let nextDayIndex: Int
+                
+                if currentDate.weekday == 7 {
+                    
+                    nextDayIndex = 0
+                    
+                } else {
+                    
+                    nextDayIndex = currentDate.weekday
+                    
+                }
                 
                 let todayBool = item.checkMarks[todayIndex].bool
                 let nextDayBool = item.checkMarks[nextDayIndex].bool
@@ -239,9 +241,7 @@ final class NotificationModel {
 //        self.center.removeAllDeliveredNotifications()
 //        
 //        let currentDate = Date()
-//
-//        print("items is \(items)")
-//        
+// 
 //        items.forEach { item in
 //            
 //            if(item.isOn) {

@@ -32,12 +32,18 @@ final class AlarmViewModel: ObservableObject {
     var date: Date = Constant.initialDate
     var title: String = ""
     
+    var items: [HourAndMinute] = []
+    
     var indexOfUUID: UUID = UUID()
     
     var conflictAlertIsPresented: Bool = false
     var limitAlertIsPresented: Bool = false
     var sheetIsPresented: Bool = false
     var zeroTrueAlertIsPresented: Bool = false
+    
+    init() {
+        self.items = self.fetchItems()
+    }
     
     //enum
     var type: EditorialType = .add
@@ -56,21 +62,21 @@ final class AlarmViewModel: ObservableObject {
         
         self.dataModel.deleteItems(offsets: indexSet)
         
-        let items = self.dataModel.fetchItems()
+        items = self.dataModel.fetchItems()
         self.notificationModel.registerAllNotifications(items: items)
         
     }
     
+    func fetchItems() -> [HourAndMinute] {
+        return self.dataModel.fetchItems()
+    }
+    
     func filterHeader(items: [HourAndMinute]) -> String {
-        return self.alarmModel.filterHeader(items: items)
+        return self.alarmModel.filterHeader(items: self.items)
     }
     
     func filterTitles(items: [HourAndMinute]) -> [String] {
-        return self.alarmModel.filterTitles(items: items)
-    }
-    
-    func getAllNotifications() {
-        return self.notificationModel.getAllNotifications()
+        return self.alarmModel.filterTitles(items: self.items)
     }
     
     func insertSystemName(index: Int) -> String {
@@ -93,8 +99,8 @@ final class AlarmViewModel: ObservableObject {
         return self.alarmModel.pickUpTime(date: date)
     }
     
-    func prepareItems(items: [HourAndMinute]) -> [[HourAndMinute]] {
-        return self.alarmModel.prepareItems(items: items)
+    func prepareItems() -> [[HourAndMinute]] {
+        return self.alarmModel.prepareItems(items: self.items)
     }
     
     func registerAllNotifications() {
@@ -106,7 +112,8 @@ final class AlarmViewModel: ObservableObject {
     
     func saveItemOrCallAlert(dismiss: DismissAction) {
         
-        let selectedItem = self.dataModel.fetchItem(uuid: indexOfUUID)
+        print("saveItemOrCallAlert")
+        print(type)
         
         let saveItem: HourAndMinute
         
@@ -117,10 +124,14 @@ final class AlarmViewModel: ObservableObject {
             saveItem = HourAndMinute(
                 checkMarks: self.checkMarks,
                 date: self.date,
-                title: self.title
+                isOn: true,
+                title: self.title,
+                uuid: self.indexOfUUID
             )
             
         case .edit:
+            
+            let selectedItem = self.dataModel.fetchItem(uuid: indexOfUUID)
             
             saveItem = HourAndMinute(
                 checkMarks: self.checkMarks,
@@ -129,6 +140,7 @@ final class AlarmViewModel: ObservableObject {
                 title: self.title,
                 uuid: selectedItem.uuid
             )
+            
             
         }
         
@@ -147,6 +159,8 @@ final class AlarmViewModel: ObservableObject {
             dismiss()
             
         }
+        
+        self.items = self.fetchItems()
         
     }
     
@@ -223,9 +237,9 @@ final class AlarmViewModel: ObservableObject {
     }
     
     //when alarm is over 16 items, alert is called and stop adding alarm. otherwise can transition to InputView.
-    func tapPlusButton(items: [HourAndMinute]) {
+    func tapPlusButton() {
         
-        if(items.count > 16) {
+        if(self.items.count > 16) {
             
             self.limitAlertIsPresented = true
             

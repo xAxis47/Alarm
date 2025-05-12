@@ -7,10 +7,11 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 struct Flag: Codable, Equatable {
     
-    var bool: Bool
+    var bool: Bool = true
     
 }
 
@@ -33,10 +34,50 @@ final class HourAndMinute: Hashable {
         
     }
     
+    init(date: Date) {
+        
+        self.checkMarks = Constant.trueArray
+        self.date = date
+        self.isOn = true
+        self.title = Constant.blank
+        self.uuid = UUID()
+        
+    }
+    
     init(title: String) {
         
         self.checkMarks = Constant.trueArray
         self.date = Constant.initialDate
+        self.isOn = true
+        self.title = title
+        self.uuid = UUID()
+        
+    }
+    
+    init(uuid: UUID) {
+        
+        self.checkMarks = Constant.trueArray
+        self.date = Constant.initialDate
+        self.isOn = true
+        self.title = Constant.blank
+        self.uuid = uuid
+        
+    }
+    
+    init(date: Date, uuid: UUID) {
+        
+        self.checkMarks = Constant.trueArray
+        self.date = date
+        self.isOn = true
+        self.title = Constant.blank
+        self.uuid = uuid
+        
+    }
+    
+    init(date: Date, title: String) {
+        
+        self.checkMarks = Constant.trueArray
+        self.date = date
         self.isOn = true
         self.title = title
         self.uuid = UUID()
@@ -61,6 +102,11 @@ final class HourAndMinute: Hashable {
         self.title = title
         self.uuid = uuid
         
+    }
+    
+    static func == (lhs: HourAndMinute, rhs: HourAndMinute) -> Bool {
+        let result = lhs.date == rhs.date && lhs.uuid == rhs.uuid
+        return result
     }
     
     func hash(into hasher: inout Hasher) {

@@ -11,6 +11,8 @@ import SwiftUI
 //this list has 2 section and position header top of the section.
 struct MainList: View {
     
+    @EnvironmentObject private var vm: AlarmViewModel
+    
     var body: some View {
         
         List {
@@ -18,7 +20,8 @@ struct MainList: View {
             MainSection()
             
         }
-        .accessibilityIdentifier(Identifier.main.list)
+        .accessibilityIdentifier(Identifier.mainList)
+        .animation(.default, value: self.vm.items)
         
     }
     
