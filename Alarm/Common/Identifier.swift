@@ -19,7 +19,7 @@ enum Identifier {
     //cell's model is "\(.mainSection)_\(header)".
     static let mainSection = "main_section"
     
-    static let mainHeader = "main_header"
+//    static let mainHeader = "main_header"
     
     //toggle's model is "\(.toggle)_\(index)".
     static let toggle = "main_toggle"
@@ -28,13 +28,13 @@ enum Identifier {
     
     //input
     static let datepicker = "input_datepicker"
+    static let goodMorning = "input_defaultmenu"
     static let menu = "input_menu"
     static let navigationLink = "input_navigationLink"
     static let repetition = "input_repetition_label"
     static let textfield = "input_textfield"
     
     static let cancelButton = "input_cancel_button"
-    static let menuButton = "input_menu_button"
     static let saveButton = "input_save_button"
     
     static let inputList = "input_list"

@@ -13,7 +13,7 @@ struct SettingSection: View {
     
     @EnvironmentObject private var vm: AlarmViewModel
     
-    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
+//    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
     
     var body: some View {
         
@@ -45,10 +45,10 @@ struct SettingSection: View {
                 
                 //when tap title string, show title menu. once enter the title at InputView, it will appear in the menu. there is goodmorning on top of the menu always.
                 
-                Menu(content: {
+                Menu {
                     
                     //After extracting the titles of the items, sort them in ascending order. exclude goodMorning and blank title.
-                    let titles = self.vm.filterTitles(items: items)
+                    let titles = self.vm.filterTitles()
                     
                     //the reason why exclude goodMorning by filter is because want to put goodMorning at the top on menu.
                     Button(action: {
@@ -58,9 +58,10 @@ struct SettingSection: View {
                     }) {
                         
                         Text("\(Constant.goodMorning)")
-                        
+                            
                     }
-                    
+                    .accessibilityIdentifier("\(Identifier.goodMorning)")
+//                    
                     ForEach(titles, id: \.self) { title in
                     
                         Button(action: {
@@ -75,7 +76,7 @@ struct SettingSection: View {
                         
                     }
                     
-                }) {
+                } label: {
                     
                     Text(Constant.title)
                     

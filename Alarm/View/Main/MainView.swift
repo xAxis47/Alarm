@@ -14,18 +14,7 @@ struct MainView: View {
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject private var vm: AlarmViewModel
-    
-//    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
-//    
-//    @Environment(\.modelContext) private var context
-
-
-//    @Environment(AlarmViewModel.self) var vm
-//    
-//    init() {
-//        print(items)
-//    }
-//    
+   
     var body: some View {
         
         NavigationStack {

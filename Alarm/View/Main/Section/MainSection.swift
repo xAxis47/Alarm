@@ -13,12 +13,6 @@ struct MainSection: View {
     
     @EnvironmentObject private var vm: AlarmViewModel
     
-//    @Query(sort: [SortDescriptor(\HourAndMinute.date)]) private var items: [HourAndMinute]
-//    
-//    init() {
-//        print(items)
-//    }
-    
     var body: some View {
         
         //prepare header for section. header need to be sorted because the order is important.
@@ -88,7 +82,7 @@ struct MainSection: View {
                 
                     Text(header)
                         .font(.title)
-                
+                        
                 }
                     
             )

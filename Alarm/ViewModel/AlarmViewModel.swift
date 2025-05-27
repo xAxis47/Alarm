@@ -72,10 +72,10 @@ final class AlarmViewModel: ObservableObject {
     }
     
     func filterHeader(items: [HourAndMinute]) -> String {
-        return self.alarmModel.filterHeader(items: self.items)
+        return self.alarmModel.filterHeader(items: items)
     }
     
-    func filterTitles(items: [HourAndMinute]) -> [String] {
+    func filterTitles() -> [String] {
         return self.alarmModel.filterTitles(items: self.items)
     }
     
@@ -227,12 +227,6 @@ final class AlarmViewModel: ObservableObject {
             self.checkMarks[index].bool.toggle()
             
         }
-        
-    }
-    
-    func tapMenuButton() {
-        
-        self.title = title
         
     }
     

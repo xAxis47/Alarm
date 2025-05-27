@@ -26,29 +26,6 @@ final class AlarmUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testSearchElement() throws {
-        
-        let addButton = app.navigationBars.buttons[Identifier.plusButton]
-        addButton.tap()
-
-//        for cell in cells.allElementsBoundByAccessibilityElement {
-//            
-//            print(cell.identifier)
-//            
-//        }
-        
-    }
-    
-    @MainActor
     func testTapAddButton() throws {
         
         let addButton = app.navigationBars.buttons[Identifier.plusButton]
@@ -74,15 +51,22 @@ final class AlarmUITests: XCTestCase {
         
         let backButton = app.navigationBars.buttons[Identifier.markBackward]
         backButton.tap()
-        
+
+        let header = "test"
+        let textField = app.descendants(matching: .textField).firstMatch
+        textField.tap()
+        textField.typeText(header)
+
         let saveButton = app.navigationBars.buttons[Identifier.saveButton]
         saveButton.tap()
         
         let timeString = app.staticTexts["\(Identifier.time)_0"].label
         let weekDayString = app.staticTexts["\(Identifier.dayOfTheWeek)_0"].label
-        
+        let headerString = app.staticTexts["\(Identifier.mainSection)_\(header)"].label
+          
         XCTAssertTrue(timeString == "12:45", "datePicker is not 12:45")
         XCTAssertTrue(weekDayString == "日,火,木,土", "weekday is not true")
+        XCTAssertTrue(headerString == header, "header is not \(header)")
 
     }
     
@@ -114,21 +98,22 @@ final class AlarmUITests: XCTestCase {
         
         let backButton = app.navigationBars.buttons[Identifier.markBackward]
         backButton.tap()
-//        
-//        let header = "test"
-//        let textField = app.descendants(matching: .textField).firstMatch
-//        textField.typeText(header)
+        
+        let menu = app/*@START_MENU_TOKEN@*/.buttons.otherElements.firstMatch/*[[".otherElements",".element(boundBy: 36)",".containing(.staticText, identifier: \"タイトル\").firstMatch",".buttons.otherElements.firstMatch"],[[[-1,3],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        menu.tap()
+        let menuButton = app.buttons[Identifier.goodMorning]
+        menuButton.tap()
 
         let saveButton = app.navigationBars.buttons[Identifier.saveButton]
         saveButton.tap()
         
         let timeString = app.staticTexts["\(Identifier.time)_0"].label
         let weekDayString = app.staticTexts["\(Identifier.dayOfTheWeek)_0"].label
-//        let headerString = app.staticTexts["\(Identifier.mainHeader)_\(header)"].label
-        
+        let headerString = app.staticTexts["\(Identifier.mainSection)_起床"].label
+
         XCTAssertTrue(timeString == "11:15", "datePicker is not 11:15")
         XCTAssertTrue(weekDayString == "土", "weekday is not true")
-//        XCTAssertTrue(headerString == header, "header is not \(header)")
+        XCTAssertTrue(headerString == "起床", "header is not \(Identifier.goodMorning)")
 
     }
     
